@@ -14,7 +14,7 @@
 #include "stm32g4_gpio.h"
 #include "stm32g4_uart.h"
 #include "stm32g4_utils.h"
-
+#include "tft_ili9341/stm32g4_ili9341.h"
 #include <stdio.h>
 
 #define BLINK_DELAY		100	//ms
