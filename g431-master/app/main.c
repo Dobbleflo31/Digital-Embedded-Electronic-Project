@@ -71,7 +71,7 @@ int main(void)
 		c=char_received(UART2_ID);
 		if(c)
 		{
-			ILI9341_Puts(0,0,c);
+			ILI9341_Putc(0,0,c);
 			//Reussite
 		}
 
