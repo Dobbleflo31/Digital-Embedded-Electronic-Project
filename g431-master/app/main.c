@@ -74,6 +74,7 @@ int main(void)
 			ILI9341_Putc(0,0,c);
 			//Reussite
 			//la loose
+			//on a reussi reste plus que ce fdp de axel
 		}
 
 	}
