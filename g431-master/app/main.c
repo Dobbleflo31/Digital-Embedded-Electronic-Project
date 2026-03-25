@@ -36,16 +36,6 @@ bool char_received(uart_id_t uart_id)
 		return false;
 }
 
-void heartbeat(void)
-{
-	while(! char_received(UART2_ID) )
-	{
-		write_LED(true);
-		HAL_Delay(50);
-		write_LED(false);
-		HAL_Delay(1500);
-	}
-}
 
 
 /**
@@ -62,6 +52,7 @@ int main(void)
 	/* Initialisation des périphériques utilisés dans votre programme */
 	BSP_GPIO_enable();
 	BSP_UART_init(UART2_ID,115200);
+	ILI9341_Init();
 
 	/* Indique que les printf sont dirigés vers l'UART2 */
 	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
@@ -77,12 +68,11 @@ int main(void)
 	/* Tâche de fond, boucle infinie, Infinite loop,... quelque soit son nom vous n'en sortirez jamais */
 	while (1)
 	{
-
-		if( char_received(UART2_ID) )
+		c=char_received(UART2_ID);
+		if(c)
 		{
-			write_LED(true);		/* write_LED? Faites un ctrl+clic dessus pour voir... */
-			HAL_Delay(BLINK_DELAY);	/* ... ça fonctionne aussi avec les macros, les variables. C'est votre nouveau meilleur ami */
-			write_LED(false);
+			ILI9341_Puts(0,0,c);
+			//Reussite
 		}
 
 	}
