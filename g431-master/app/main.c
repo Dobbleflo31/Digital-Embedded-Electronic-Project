@@ -73,6 +73,7 @@ int main(void)
 		{
 			ILI9341_Putc(0,0,c);
 			//Reussite
+			//la loose
 		}
 
 	}
