@@ -44,7 +44,7 @@
 #define USE_FONT11x18 			1
 
 /*------------------Afficheurs------------------*/
-#define USE_ILI9341			0 // �cran TFT
+#define USE_ILI9341			0 // ecran TFT
 #if USE_ILI9341
 	#define USE_XPT2046			1
 	#define USE_FONT7x10		1
