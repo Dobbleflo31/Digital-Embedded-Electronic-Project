@@ -16,6 +16,9 @@
 #include "stm32g4_utils.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
+#include "pokelike/main.h"
+#include "button.h"
+
 
 #include <stdio.h>
 
@@ -55,40 +58,32 @@ int main(void)
 	BSP_GPIO_enable();
 	BSP_UART_init(UART2_ID,115200);
 
+	BUTTONS_init();
 	ILI9341_Init();
 	ILI9341_Fill(ILI9341_COLOR_WHITE);
-	ILI9341_DrawCircle(20,20,5,ILI9341_COLOR_BLUE);
-	ILI9341_DrawLine(20,20,100,20,ILI9341_COLOR_RED);
-	ILI9341_DrawLine(20,20,20,100,ILI9341_COLOR_RED);
-	ILI9341_Putc(110,11,'x',&Font_7x10,ILI9341_COLOR_BLUE,ILI9341_COLOR_WHITE);
-	ILI9341_Putc(15,110,'y',&Font_7x10,ILI9341_COLOR_BLUE,ILI9341_COLOR_WHITE);
-	ILI9341_Puts(200,200, "chaine", &Font_7x10, ILI9341_COLOR_BROWN, ILI9341_COLOR_WHITE);
 
 	/* Indique que les printf sont dirigés vers l'UART2 */
 	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
-	/* Initialisation du port de la led Verte (carte Nucleo) */
-	BSP_GPIO_pin_config(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH,GPIO_NO_AF);
 
-	/* Hello student */
-	printf("Hi <Student>, can you read me?\n");
 
-	//heartbeat();
-
-	BSP_UART_putc(UART2_ID, 'c');
 
 	/* Tâche de fond, boucle infinie, Infinite loop,... quelque soit son nom vous n'en sortirez jamais */
 	while (1)
 	{
-
-		char c=char_received(UART2_ID);
-		if(c)
-		{
-
-			BSP_UART_putc(UART2_ID, 'c');
-			//ILI9341_Putc(0,0,c,(5,5),);
+		int count=0;
+		if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){
+			count+=1;
+		}
+		if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
+			if (count>0){
+				count+=1;
+			}
+		}
+		if (HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER)){
 
 		}
+
 
 	}
 }
