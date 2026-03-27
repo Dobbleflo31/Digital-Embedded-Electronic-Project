@@ -15,8 +15,12 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32g4xx_hal.h"
+#include "tft_ili9341/stm32g4_ili9341.h"
 
 /* Defines -------------------------------------------------------------------*/
+#define USE_SCREEN_TFT_ILI9341 	1
+#define USE_FONT11x18 			1
+
 #define LED_GREEN_PIN 		GPIO_PIN_8
 #define LED_GREEN_GPIO 		GPIOB
 
@@ -40,11 +44,10 @@
 
 #define USE_DAC				0
 
-#define USE_SCREEN_TFT_ILI9341 	1
-#define USE_FONT11x18 			1
+
 
 /*------------------Afficheurs------------------*/
-#define USE_ILI9341			0 // ecran TFT
+#define USE_ILI9341			1 // ecran TFT
 #if USE_ILI9341
 	#define USE_XPT2046			1
 	#define USE_FONT7x10		1
