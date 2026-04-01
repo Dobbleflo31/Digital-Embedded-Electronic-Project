@@ -5,4 +5,9 @@
  *      Author: maxim
  */
 
+void main_POKELIKE(void){
 
+	while(1){
+
+	}
+}

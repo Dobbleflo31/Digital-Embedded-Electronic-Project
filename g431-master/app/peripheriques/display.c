@@ -4,10 +4,10 @@
  *  Created on: Feb 12, 2024
  *      Author: Nirgal
  */
+#include <peripheriques/display.h>
 #include "gameoflife.h"
 #include "stm32g4xx_hal.h"
 #include "stm32g4_systick.h"
-#include "display.h"
 #include "TFT_ili9341/stm32g4_ili9341.h"
 #include "TFT_ili9341/stm32g4_fonts.h"
 

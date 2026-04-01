@@ -4,9 +4,9 @@
  *  Created on: Feb 12, 2024
  *      Author: Nirgal
  */
+#include <peripheriques/button.h>
 #include "stm32g4xx_hal.h"
 #include "stm32g4_systick.h"
-#include "button.h"
 #include "stm32g4_gpio.h"
 
 #define GPIO_BUTTON_LEFT GPIOA

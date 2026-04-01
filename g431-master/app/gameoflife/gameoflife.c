@@ -5,10 +5,10 @@
  *      Author: Nirgal
  */
 
+#include <peripheriques/button.h>
+#include <peripheriques/display.h>
 #include "gameoflife.h"
 #include "stm32g4xx_hal.h"
-#include "button.h"
-#include "display.h"
 #include "stm32g4_systick.h"
 #include "TFT_ili9341/stm32g4_xpt2046.h"
 

@@ -8,6 +8,6 @@
 #ifndef POKELIKE_MAIN_H_
 #define POKELIKE_MAIN_H_
 
-
+void main_POKELIKE(void);
 
 #endif /* POKELIKE_MAIN_H_ */

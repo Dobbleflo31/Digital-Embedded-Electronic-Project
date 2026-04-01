@@ -7,6 +7,8 @@
  *******************************************************************************
  */
 
+#include <peripheriques/button.h>
+#include <peripheriques/display.h>
 #include "config.h"
 #include "stm32g4_sys.h"
 
@@ -19,10 +21,8 @@
 
 #include "pokelike/main.h"
 #include "gameoflife/main.c"
-#include "gameoflife/display.h"
-#include "button.h"
-
-
+#include "peripheriques/display.h"
+#include "peripheriques/button.h"
 #include <stdio.h>
 
 #define BLINK_DELAY		100	//ms
@@ -95,10 +95,10 @@ int main(void)
 					main_GAMEOFLIFE();
 					break;
 				case 2:
-					//statement2
+					main_POKELIKE();
 					break;
 				case 3:
-					//statement3
+					ILI9341_Puts(50, 120, "Lancement de DOOM", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 					break;
 				case 4:
 					ILI9341_DisplayOff();
