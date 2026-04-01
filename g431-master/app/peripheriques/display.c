@@ -5,7 +5,7 @@
  *      Author: Nirgal
  */
 #include <peripheriques/display.h>
-#include "gameoflife.h"
+#include "gameoflife/gameoflife.h"
 #include "stm32g4xx_hal.h"
 #include "stm32g4_systick.h"
 #include "TFT_ili9341/stm32g4_ili9341.h"

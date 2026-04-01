@@ -13,8 +13,8 @@
 #include "stm32g4_gpio.h"
 #include "stm32g4_systick.h"
 
-int main_GAMEOFLIFE(void)
-{
+/*
+int main_GAMEOFLIFE(void){
 	//Initialisation de la couche logicielle HAL (Hardware Abstraction Layer)
 	//Cette ligne doit rester la première étape de la fonction main().
 	HAL_Init();
@@ -39,6 +39,7 @@ int main_GAMEOFLIFE(void)
 		void GAMEOFLIFE_process_main(void);
 	}
 }
+*/
 
 
 

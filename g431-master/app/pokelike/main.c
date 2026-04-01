@@ -17,7 +17,8 @@
 void main_POKELIKE(void){
 	BUTTONS_init();
 	DISPLAY_init();
-
+	Carte_Init();
+	Carte_Afficher();
 
 	while(1){
 

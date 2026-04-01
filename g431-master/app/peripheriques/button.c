@@ -9,6 +9,7 @@
 #include "stm32g4_systick.h"
 #include "stm32g4_gpio.h"
 
+
 #define GPIO_BUTTON_LEFT GPIOA
 #define PIN_BUTTON_LEFT GPIO_PIN_12
 
@@ -45,27 +46,27 @@ void BUTTONS_process_ms(void)
 		t--;
 }
 
-uint8_t BUTTON_left_read(void)
+int BUTTON_left_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT);
 }
 
-uint8_t BUTTON_right_read(void)
+int BUTTON_right_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT);
 }
 
-uint8_t BUTTON_up_read(void)
+int BUTTON_up_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP);
 }
 
-uint8_t BUTTON_down_read(void)
+int BUTTON_down_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN);
 }
 
-uint8_t BUTTON_center_read(void)
+int BUTTON_center_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER);
 }

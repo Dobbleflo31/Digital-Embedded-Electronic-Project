@@ -77,22 +77,22 @@ int main(void)
 		int count=1;
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){
 			if (count>1){
-				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 				count-=1;
-				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 			}
 		}
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
 			if (count<4){
-				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 				count+=1;
-				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 			}
 		}
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER)){
 			switch (count){
 				case 1:
-					main_GAMEOFLIFE();
+					//main_GAMEOFLIFE();
 					break;
 				case 2:
 					main_POKELIKE();

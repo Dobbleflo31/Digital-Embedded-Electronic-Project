@@ -7,6 +7,7 @@
 
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
+#include "gameoflife/gameoflife.h"
 
 void DISPLAY_init(void);
 void DISPLAY_refresh(grid_t *grid);
