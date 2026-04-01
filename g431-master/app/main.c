@@ -44,7 +44,7 @@ bool char_received(uart_id_t uart_id)
 		return false;
 }
 
-
+//modification de test
 
 /**
   * @brief  Point d'entrée de votre application
