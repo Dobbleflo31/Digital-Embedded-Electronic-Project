@@ -69,7 +69,7 @@ void Carte_Afficher(void)
             int pixelX = x * TAILLE_BLOC;
             int pixelY = y * TAILLE_BLOC;
 
-            /* Dessine un carré */
+            /* Dessine un rectanbgle */
             ILI9341_DrawFilledRectangle(pixelX, pixelY, TAILLE_BLOC, TAILLE_BLOC, couleur);
         }
     }
