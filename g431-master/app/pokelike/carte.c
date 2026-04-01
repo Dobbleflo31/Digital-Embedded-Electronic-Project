@@ -4,8 +4,6 @@
  *  Created on: 1 avr. 2026
  *      Author: flori
  */
-
-
 #include "carte.h"
 #include "bloc.h"
 #include "tft_ili9341/stm32g4_ili9341.h"

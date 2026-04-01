@@ -5,7 +5,6 @@
  *      Author: flori
  */
 
-
 #include "bloc.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
