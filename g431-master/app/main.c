@@ -16,7 +16,10 @@
 #include "stm32g4_utils.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
+
 #include "pokelike/main.h"
+#include "gameoflife/main.c"
+#include "gameoflife/display.h"
 #include "button.h"
 
 
@@ -59,25 +62,48 @@ int main(void)
 	BSP_UART_init(UART2_ID,115200);
 
 	BUTTONS_init();
-	ILI9341_Init();
-	ILI9341_Fill(ILI9341_COLOR_WHITE);
+	DISPLAY_init();
 
 	/* Indique que les printf sont dirigés vers l'UART2 */
 	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
+	ILI9341_Puts(20, 20, "Jeu de la vie", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 40, "Pokelike", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 60, "Display On Outlook Manager", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 80, "Quitter", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 	/* Tâche de fond, boucle infinie, Infinite loop,... quelque soit son nom vous n'en sortirez jamais */
 	while (1)
 	{
-		int count=0;
+		int count=1;
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){
-			count+=1;
+			if (count>1){
+				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+				count-=1;
+				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+			}
 		}
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
-			if (count>0){
+			if (count<4){
+				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 				count+=1;
+				ILI9341_Puts(10, count*20, "-", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
 			}
 		}
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER)){
+			switch (count){
+				case 1:
+					main_GAMEOFLIFE();
+					break;
+				case 2:
+					//statement2
+					break;
+				case 3:
+					//statement3
+					break;
+				case 4:
+					ILI9341_DisplayOff();
+					break;
+			}
 
 		}
 
