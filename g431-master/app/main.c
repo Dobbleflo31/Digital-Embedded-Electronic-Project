@@ -92,7 +92,7 @@ int main(void)
 		            ILI9341_Puts(5, count*20, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 		            HAL_Delay(150);
 		        }
-		    if (BUTTON_up_read()){
+		    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
 		        if (count > 1){
 		            // efface curseur
 		            ILI9341_Puts(5, count*20, " ", &Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
