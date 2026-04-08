@@ -74,6 +74,7 @@ int main(void)
 	ILI9341_Fill(ILI9341_COLOR_WHITE);
 
 	ILI9341_Puts(20, 20, "Jeu de la vie", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(5, 20, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(20, 40, "Pokelike", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(20, 60, "Display On Outlook Manager", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(20, 80, "Quitter", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
@@ -92,7 +93,8 @@ int main(void)
 		            ILI9341_Puts(5, count*20, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 		            HAL_Delay(150);
 		        }
-		    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
+		    }
+		    if (BUTTON_up_read()){
 		        if (count > 1){
 		            // efface curseur
 		            ILI9341_Puts(5, count*20, " ", &Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
@@ -100,9 +102,9 @@ int main(void)
 		            // affiche curseur
 		            ILI9341_Puts(5, count*20, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 		            HAL_Delay(150);
-		                }
-		}
+		        }
 		    }
+
 
 		if (BUTTON_center_read()){
 			switch (count){
