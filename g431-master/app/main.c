@@ -16,9 +16,10 @@
 #include "stm32g4_gpio.h"
 #include "stm32g4_uart.h"
 #include "stm32g4_utils.h"
+#include "stm32g4_adc.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
-
+#include "HC-05/stm32g4_hc05.h"
 #include "pokelike/main.h"
 #include "gameoflife/main.c"
 #include "peripheriques/display.h"
@@ -56,8 +57,15 @@ int main(void)
 	 * Elle permet d'initialiser toutes les couches basses des drivers (Hardware Abstraction Layer),
 	 * condition préalable indispensable à l'exécution des lignes suivantes.
 	 */
+	BSP_ADC_init();
 	HAL_Init();
-
+	BSP_UART_putc(UART1_ID, 'c');
+	char str[]="at";
+	int s;
+	s=&str;
+	printf("%d",s);
+	BSP_UART_puts(UART1_ID,s,2);
+	HC05_set_echo_for_AT_mode();
 	/* Initialisation des périphériques utilisés dans votre programme */
 	BSP_GPIO_enable();
 	BSP_UART_init(UART2_ID,115200);

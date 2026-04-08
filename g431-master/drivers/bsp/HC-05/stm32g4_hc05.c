@@ -9,17 +9,17 @@
 
 
 /*
- * Cette fonction est utilisée pour permettre le dialogue en un PC relié via la port série virtuel de la sonde de débogage (via l'UART2)
- *   et un module HC-05 relié à l'UART1 (PA9, PA10).
+ * Cette fonction est utilisï¿½e pour permettre le dialogue en un PC reliï¿½ via la port sï¿½rie virtuel de la sonde de dï¿½bogage (via l'UART2)
+ *   et un module HC-05 reliï¿½ ï¿½ l'UART1 (PA9, PA10).
  *
- *  Son usage est généralement temporaire, le temps de la configuration du module HC-05 en mode AT.
+ *  Son usage est gï¿½nï¿½ralement temporaire, le temps de la configuration du module HC-05 en mode AT.
  *
- *  Cette fonction doit être appelée en début de main() après HAL_init();
+ *  Cette fonction doit ï¿½tre appelï¿½e en dï¿½but de main() aprï¿½s HAL_init();
  *  Elle est blocante !
  */
 void HC05_set_echo_for_AT_mode(void)
 {
-	BSP_UART_init(UART1_ID, 38400);		//vitesse nécessaire pour la configuration du HC-05 en mode AT
+	BSP_UART_init(UART1_ID, 38400);		//vitesse nï¿½cessaire pour la configuration du HC-05 en mode AT
 	BSP_UART_init(UART2_ID, 115200);
 	uint8_t c;
 	volatile bool config_mode = true;
@@ -36,8 +36,8 @@ void HC05_set_echo_for_AT_mode(void)
 			BSP_UART_putc(UART1_ID, c);
 		}
 
-		//pour sortir de cette boucle, il suffit de passer config_mode à false à l'aide du débogueur.
+		//pour sortir de cette boucle, il suffit de passer config_mode ï¿½ false ï¿½ l'aide du dï¿½bogueur.
 	}
 
-	BSP_UART_init(UART1_ID, 115200);	//vitesse du HC-05 en mode de communication normale (si vous avez configuré cette vitesse ainsi).
+	BSP_UART_init(UART1_ID, 115200);	//vitesse du HC-05 en mode de communication normale (si vous avez configurï¿½ cette vitesse ainsi).
 }
