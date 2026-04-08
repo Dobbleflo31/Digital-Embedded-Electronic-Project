@@ -52,6 +52,10 @@ void Carte_Init(void)
 {
 }
 
+TypeBloc Carte_GetBloc(int x, int y)
+{
+    return carte[y][x];
+}
 /**
  * @brief Affiche toute la carte
  */
@@ -63,14 +67,29 @@ void Carte_Afficher(void)
         {
             TypeBloc type = carte[y][x];
 
-            uint16_t couleur = Bloc_GetCouleur(type);
+            //uint16_t couleur = Bloc_GetCouleur(type);
+
+            uint16_t couleur;
+
+            if(type == BLOC_MUR)
+                couleur = ILI9341_COLOR_GRAY;
+            else
+                couleur = ILI9341_COLOR_GREEN;
 
             /* Calcul position écran */
             int pixelX = x * TAILLE_BLOC;
             int pixelY = y * TAILLE_BLOC;
 
             /* Dessine un rectanbgle */
-            ILI9341_DrawFilledRectangle(pixelX, pixelY, TAILLE_BLOC, TAILLE_BLOC, couleur);
+           // ILI9341_DrawFilledRectangle(pixelX, pixelY, TAILLE_BLOC, TAILLE_BLOC, couleur);
+
+            for(int i = 0; i < TAILLE_BLOC; i++)
+            {
+                for(int j = 0; j < TAILLE_BLOC; j++)
+                {
+                    ILI9341_DrawPixel(pixelX + j, pixelY + i, couleur);
+                }
+            }
         }
     }
 }

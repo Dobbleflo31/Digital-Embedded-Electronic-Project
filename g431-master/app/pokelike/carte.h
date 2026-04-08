@@ -16,4 +16,6 @@ void Carte_Afficher(void);
  */
 TypeBloc Carte_GetBloc(int x, int y);
 
+
+
 #endif /* POKELIKE_CARTE_H_ */

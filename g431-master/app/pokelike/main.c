@@ -13,14 +13,25 @@
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
 #include "carte.h"
+#include "joueur.h"
 
 void main_POKELIKE(void){
 	BUTTONS_init();
 	DISPLAY_init();
 	Carte_Init();
+	Joueur_Init();
 	Carte_Afficher();
 
-	while(1){
 
+
+
+
+	while(1){
+		Joueur_Update();
+
+		Joueur_Effacer();
+		Joueur_Afficher();
+
+		HAL_Delay(50);
 	}
 }

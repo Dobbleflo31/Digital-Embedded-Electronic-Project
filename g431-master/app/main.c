@@ -68,28 +68,37 @@ int main(void)
 	/* Indique que les printf sont dirigés vers l'UART2 */
 	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
-	ILI9341_Puts(20, 20, "Jeu de la vie", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-	ILI9341_Puts(20, 40, "Pokelike", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-	ILI9341_Puts(20, 60, "Display On Outlook Manager", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-	ILI9341_Puts(20, 80, "Quitter", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+	// menu
+	int count = 1;
+
+	ILI9341_Fill(ILI9341_COLOR_WHITE);
+
+	ILI9341_Puts(20, 20, "Jeu de la vie", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 40, "Pokelike", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 60, "Display On Outlook Manager", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
+	ILI9341_Puts(20, 80, "Quitter", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	/* Tâche de fond, boucle infinie, Infinite loop,... quelque soit son nom vous n'en sortirez jamais */
+
 	while (1)
 	{
-		int count=1;
-		if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){
-			if (count>1){
-				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-				count-=1;
-				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-			}
+		// efface curseur
+		    ILI9341_Puts(5, count*20, " ", &Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+
+		    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){
+		        if (count < 4){
+		            count++;
+		            HAL_Delay(150);
+		        }
+		        if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
+		                if (count > 1){
+		                    count--;
+		                    HAL_Delay(150);
+		                }
 		}
-		if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP)){
-			if (count<4){
-				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-				count+=1;
-				ILI9341_Puts(10, count*20, "-",&Font_7x10, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
-			}
-		}
+		    }
+		// affiche curseur
+		ILI9341_Puts(5, count*20, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
+
 		if (HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER)){
 			switch (count){
 				case 1:
@@ -99,7 +108,7 @@ int main(void)
 					main_POKELIKE();
 					break;
 				case 3:
-					ILI9341_Puts(50, 120, "Lancement de DOOM", ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE, ILI9341_COLOR_WHITE);
+					ILI9341_Puts(50, 120, "Lancement de DOOM", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 					break;
 				case 4:
 					ILI9341_DisplayOff();
@@ -111,3 +120,4 @@ int main(void)
 
 	}
 }
+
