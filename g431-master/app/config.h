@@ -19,7 +19,6 @@
 
 /* Defines -------------------------------------------------------------------*/
 #define USE_SCREEN_TFT_ILI9341 	1
-#define USE_FONT11x18 			1
 
 #define LED_GREEN_PIN 		GPIO_PIN_8
 #define LED_GREEN_GPIO 		GPIOB
@@ -51,11 +50,11 @@
 	/* Configuration pour activer les entrées analogiques souhaitées */
 	#define USE_IN1		1 //Broche correspondante: PA0
 	#define USE_IN2		1 //Broche correspondante: PA1
-	#define USE_IN3		0 //Broche correspondante: PA6
-	#define USE_IN4		0 //Broche correspondante: PA7
+	#define USE_IN3		1 //Broche correspondante: PA6
+	#define USE_IN4		1 //Broche correspondante: PA7
 	#define USE_IN10	0 //Broche correspondante: PF1 /!\ Broche indisponible sur g431 sauf si SB11 et pas SB10 (petits pads à souder sur la carte)
-	#define USE_IN13	0 //Broche correspondante: PA5
-	#define USE_IN17	0 //Broche correspondante: PA4
+	#define USE_IN13	1 //Broche correspondante: PA5
+	#define USE_IN17	1 //Broche correspondante: PA4
 
 #define USE_DAC				0
 
@@ -66,8 +65,8 @@
 #if USE_ILI9341
 	#define USE_XPT2046			1
 	#define USE_FONT7x10		1
-	#define USE_FONT11x18		0
-	#define USE_FONT16x26		0
+	#define USE_FONT11x18		1
+	#define USE_FONT16x26		1
 #endif
 
 #define USE_EPAPER			0 // e-paper (�cran basse consommation)
