@@ -19,7 +19,7 @@
  */
 void HC05_set_echo_for_AT_mode(void)
 {
-	BSP_UART_init(UART1_ID, 115200);		//vitesse n�cessaire pour la configuration du HC-05 en mode AT 9600 pour communiquer avec le tel
+	BSP_UART_init(UART1_ID, 9600);		//vitesse n�cessaire pour la configuration du HC-05 en mode AT 9600 pour communiquer avec le tel
 	BSP_UART_init(UART2_ID, 115200);
 	uint8_t c;
 	volatile bool config_mode = true;

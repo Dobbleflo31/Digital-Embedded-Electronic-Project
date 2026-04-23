@@ -62,7 +62,7 @@ int main(void)
 
 	/* Initialisation des périphériques utilisés dans votre programme */
 	BSP_GPIO_enable();
-	BSP_UART_init(UART1_ID, 115200);   // HC-05 AT MODE
+	BSP_UART_init(UART1_ID, 9600);   // HC-05 AT MODE
 	BSP_UART_init(UART2_ID, 115200);  // Docklight PC
 
 	/* Indique que les printf sont dirigés vers l'UART2 */
@@ -71,15 +71,6 @@ int main(void)
 	BUTTONS_init();
 	DISPLAY_init();
 
-	// =========================
-	    // TEST DIRECT UART (IMPORTANT DEBUG)
-	    // =========================
-	    BSP_UART_puts(UART1_ID, "AT\r\n", 4);
-
-	    // =========================
-	    // MODE ECHO HC05
-	    // =========================
-	    HC05_set_echo_for_AT_mode();
 
 
 

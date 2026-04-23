@@ -4,9 +4,15 @@
 #include "config.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
+#include "charizard.h"
+
+#define SPRITE_WIDTH  CHARIZARD_WIDTH
+#define SPRITE_HEIGHT CHARIZARD_HEIGHT
+
+#define TRANSPARENT 0xFFFF
 
 /* Taille bloc */
-#define TAILLE_BLOC 20
+#define TAILLE_BLOC 16
 
 /* Position du joueur */
 static int joueurX = 2;
@@ -17,24 +23,7 @@ static int ancienX = 2;
 static int ancienY = 2;
 
 /* Sprite */
-#define SPRITE_TAILLE 8
 
-#define TRANSPARENT 0x0000
-#define NOIR 0x0000
-#define BLANC 0xFFFF
-#define ROUGE 0xF800
-#define BLEU 0x001F
-
-const uint16_t joueur_sprite[SPRITE_TAILLE][SPRITE_TAILLE] = {
-    {TRANSPARENT,TRANSPARENT,ROUGE,ROUGE,ROUGE,ROUGE,TRANSPARENT,TRANSPARENT},
-    {TRANSPARENT,ROUGE,BLANC,BLANC,BLANC,BLANC,ROUGE,TRANSPARENT},
-    {ROUGE,BLANC,NOIR,BLANC,BLANC,NOIR,BLANC,ROUGE},
-    {ROUGE,BLANC,BLANC,BLANC,BLANC,BLANC,BLANC,ROUGE},
-    {ROUGE,BLANC,BLEU,BLANC,BLANC,BLEU,BLANC,ROUGE},
-    {ROUGE,BLANC,BLANC,BLANC,BLANC,BLANC,BLANC,ROUGE},
-    {TRANSPARENT,ROUGE,BLANC,BLANC,BLANC,BLANC,ROUGE,TRANSPARENT},
-    {TRANSPARENT,TRANSPARENT,ROUGE,ROUGE,ROUGE,ROUGE,TRANSPARENT,TRANSPARENT}
-};
 
 /**
  * @brief Initialise le joueur
@@ -51,13 +40,29 @@ void Joueur_Init(void)
 /**
  * @brief Dessine le sprite
  */
+
+/*
 void Joueur_DessinerSprite(int pixelX, int pixelY)
 {
-    for(int y = 0; y < SPRITE_TAILLE; y++)
+    ILI9341_putImage(
+        pixelX,
+        pixelY,
+        SPRITE_WIDTH,
+        SPRITE_HEIGHT,
+        (const int16_t*)charizard_map,
+        SPRITE_WIDTH * SPRITE_HEIGHT
+    );
+}
+*/
+
+
+void Joueur_DessinerSprite(int pixelX, int pixelY)
+{
+    for(int y = 0; y < SPRITE_HEIGHT; y++)
     {
-        for(int x = 0; x < SPRITE_TAILLE; x++)
+        for(int x = 0; x < SPRITE_WIDTH; x++)
         {
-            uint16_t color = joueur_sprite[y][x];
+            uint16_t color = charizard_map[y * SPRITE_WIDTH + x];
 
             if(color != TRANSPARENT)
             {
@@ -67,13 +72,16 @@ void Joueur_DessinerSprite(int pixelX, int pixelY)
     }
 }
 
+
+
+
 /**
  * @brief Affiche le joueur
  */
 void Joueur_Afficher(void)
 {
-    int pixelX = joueurX * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_TAILLE)/2;
-    int pixelY = joueurY * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_TAILLE)/2;
+	int pixelX = joueurX * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_WIDTH)/2;
+	int pixelY = joueurY * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_HEIGHT)/2;
 
     Joueur_DessinerSprite(pixelX, pixelY);
 }
