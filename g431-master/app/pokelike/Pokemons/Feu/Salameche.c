@@ -1,11 +1,29 @@
+#include <pokelike/Pokemons/Feu/Salameche.h>
 #include <stdint.h>
-#include "charizard.h"
+#include "pokelike/Pokemons/Attaque.h"
 
+#define SPRITE_WIDTH  56
+#define SPRITE_HEIGHT 56
 
-#define CHARIZARD_WIDTH  56
-#define CHARIZARD_HEIGHT 56
+int Niveau_evo_Salameche = 16;
 
-const uint16_t charizard_map[] = {
+//Attaques
+void Salameche_Liste_Attaque(){
+	struct Attaque Griffe;
+	Griffe.ATK=40;
+	Griffe.NIV=0;
+	struct Attaque Rugissement;
+	Rugissement.ATK=0;
+	Rugissement.NIV=0;
+	struct Attaque Flammeche;
+	Flammeche.ATK=40;
+	Flammeche.NIV=9;
+	struct Attaque Groz_Yeux;
+	Groz_Yeux.ATK=0;
+	Groz_Yeux.NIV=15;
+}
+
+const uint16_t salameche_map[] = {
 		// 'Sprite_0004_RB', 56x56px
 		0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
 		0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
