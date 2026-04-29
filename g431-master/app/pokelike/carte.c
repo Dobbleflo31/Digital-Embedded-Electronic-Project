@@ -39,7 +39,7 @@ void Carte_Init(void)
 }
 
 /* =========================================================
- *  DRAW TILE (CORRIGÉ)
+ *  DRAW TILE
  * ========================================================= */
 void draw_tile(uint16_t tileIndex, int screenX, int screenY)
 {
