@@ -22,7 +22,7 @@ static int joueurY = 2;
 static int ancienX = 2;
 static int ancienY = 2;
 
-/* Sprite */
+
 
 
 /**
@@ -41,19 +41,7 @@ void Joueur_Init(void)
  * @brief Dessine le sprite
  */
 
-/*
-void Joueur_DessinerSprite(int pixelX, int pixelY)
-{
-    ILI9341_putImage(
-        pixelX,
-        pixelY,
-        SPRITE_WIDTH,
-        SPRITE_HEIGHT,
-        (const int16_t*)charizard_map,
-        SPRITE_WIDTH * SPRITE_HEIGHT
-    );
-}
-*/
+
 
 
 void Joueur_DessinerSprite(int pixelX, int pixelY)
@@ -94,16 +82,9 @@ void Joueur_Effacer(void)
     int pixelX = ancienX * TAILLE_BLOC;
     int pixelY = ancienY * TAILLE_BLOC;
 
-    TypeBloc bloc = Carte_GetBloc(ancienX, ancienY);
-    uint16_t couleur = Bloc_GetCouleur(bloc);
+    uint16_t tile = Carte_GetBloc(ancienX, ancienY);
 
-    for(int y = 0; y < TAILLE_BLOC; y++)
-    {
-        for(int x = 0; x < TAILLE_BLOC; x++)
-        {
-            ILI9341_DrawPixel(pixelX + x, pixelY + y, couleur);
-        }
-    }
+    draw_tile(tile, pixelX, pixelY);
 }
 
 /**

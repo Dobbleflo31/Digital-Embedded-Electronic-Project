@@ -14,8 +14,9 @@ void Carte_Afficher(void);
 /**
  * @brief Retourne le type de bloc à une position
  */
-TypeBloc Carte_GetBloc(int x, int y);
 
+uint16_t Carte_GetBloc(int x, int y);
+void draw_tile(uint16_t tileIndex, int screenX, int screenY);
 
 
 #endif /* POKELIKE_CARTE_H_ */
