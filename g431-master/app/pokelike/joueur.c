@@ -1,13 +1,13 @@
+#include <pokelike/Pokemons/Feu/Salameche.h>
 #include "joueur.h"
 #include "carte.h"
 #include "bloc.h"
 #include "config.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
-#include "charizard.h"
 
-#define SPRITE_WIDTH  CHARIZARD_WIDTH
-#define SPRITE_HEIGHT CHARIZARD_HEIGHT
+#define WIDTH  SPRITE_WIDTH
+#define HEIGHT SPRITE_HEIGHT
 
 #define TRANSPARENT 0xFFFF
 
@@ -62,7 +62,7 @@ void Joueur_DessinerSprite(int pixelX, int pixelY)
     {
         for(int x = 0; x < SPRITE_WIDTH; x++)
         {
-            uint16_t color = charizard_map[y * SPRITE_WIDTH + x];
+            uint16_t color = salameche_map[y * SPRITE_WIDTH + x];
 
             if(color != TRANSPARENT)
             {
