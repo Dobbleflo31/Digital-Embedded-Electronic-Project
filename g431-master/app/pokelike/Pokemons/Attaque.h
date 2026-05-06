@@ -11,6 +11,8 @@
 struct Attaque {
   int ATK;
   int NIV;
+  int DEB;
+  int BUF;
 };
 
 #endif /* POKELIKE_POKEMONS_ATTAQUE_H_ */

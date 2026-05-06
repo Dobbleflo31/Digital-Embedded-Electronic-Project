@@ -41,10 +41,7 @@ void Joueur_Init(void)
  * @brief Dessine le sprite
  */
 
-
-
-
-void Joueur_DessinerSprite(int pixelX, int pixelY)
+/*void Joueur_DessinerSprite(int pixelX, int pixelY)
 {
     for(int y = 0; y < SPRITE_HEIGHT; y++)
     {
@@ -58,10 +55,7 @@ void Joueur_DessinerSprite(int pixelX, int pixelY)
             }
         }
     }
-}
-
-
-
+}*/
 
 /**
  * @brief Affiche le joueur
