@@ -30,6 +30,7 @@ void Joueur_Init(void)
 /**
  * @brief Dessine un carré rouge 4x4 centré
  */
+
 void Joueur_DessinerSprite(int pixelX, int pixelY)
 {
     // On dessine un bloc de 4x4 pixels (plus visible qu'un seul pixel !)
@@ -42,6 +43,11 @@ void Joueur_DessinerSprite(int pixelX, int pixelY)
         }
     }
 }
+
+
+/**
+ * @brief Affiche le joueur
+ */
 
 void Joueur_Afficher(void)
 {
