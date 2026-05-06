@@ -13,6 +13,6 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-extern const uint16_t tortank_map[];
+extern uint16_t tortank_map[];
 
 #endif /* POKELIKE_POKEMONS_EAU_TORTANK_H_ */

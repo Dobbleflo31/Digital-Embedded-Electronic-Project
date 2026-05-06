@@ -7,7 +7,8 @@
 
 #ifndef POKELIKE_COMBAT_COMBAT_H_
 #define POKELIKE_COMBAT_COMBAT_H_
-
+#define _POSIX_TIMERS
+void combat_main(void);
 
 
 #endif /* POKELIKE_COMBAT_COMBAT_H_ */
