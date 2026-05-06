@@ -54,6 +54,8 @@ int combat_main(){
 		DessinerSprite(260,180,florizarre_map);
 		break;
 	}
+
+
 }
 
 void combat_DessinerSprite(int pixelX, int pixelY, uint16_t pokemon_map)
