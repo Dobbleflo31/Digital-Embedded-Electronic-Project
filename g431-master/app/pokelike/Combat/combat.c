@@ -1,21 +1,22 @@
 /*
+
  * combat.c
  *
  *  Created on: 29 avr. 2026
  *      Author: maxim
- */
+
 
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
-#include "Pokemons/Eau/Carapuce.h"
-#include "Pokemons/Eau/Carabaffe.h"
-#include "Pokemons/Eau/Tortank.h"
-#include "Pokemons/Feu/Salameche.h"
-#include "Pokemons/Feu/Reptincel.h"
-#include "Pokemons/Feu/Dracaufeu.h"
-#include "Pokemons/Plante/Bulbizarre.h"
-#include "Pokemons/Plante/Herbizarre.h"
-#include "Pokemons/Plante/Florizarre.h"
+#include "pokelike/Pokemons/Eau/Carapuce.h"
+#include "../Pokemons/Eau/Carabaffe.h"
+#include "pokelike/Pokemons/Eau/Tortank.h"
+#include "pokelike/Pokemons/Feu/Salameche.h"
+#include "pokelike/Pokemons/Feu/Reptincel.h"
+#include "pokelike/Pokemons/Feu/Dracaufeu.h"
+#include "pokelike/Pokemons/Plante/Bulbizarre.h"
+#include "pokelike/Pokemons/Plante/Herbizarre.h"
+#include "pokelike/Pokemons/Plante/Florizarre.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -24,7 +25,7 @@ ILI9341_Fill(ILI9341_COLOR_BLACK);
 
 int combat_main(){
 	srand(time(NULL));
-	n=rand();
+	int n=rand();
 	switch(n){
 	case 0:
 		DessinerSprite(260,180,carapuce_map);
@@ -36,7 +37,7 @@ int combat_main(){
 		DessinerSprite(260,180,tortank_map);
 		break;
 	case 3:
-		DessinerSprite(260,180,salamèche_map);
+		DessinerSprite(260,180,salameche_map);
 		break;
 	case 4:
 		DessinerSprite(260,180,reptincel_map);
@@ -73,4 +74,5 @@ void combat_DessinerSprite(int pixelX, int pixelY, uint16_t pokemon_map)
         }
     }
 }
+*/
 

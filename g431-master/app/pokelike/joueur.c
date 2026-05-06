@@ -3,7 +3,7 @@
 #include "config.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
-
+#include "stm32g4_uart.h"
 
 #define TAILLE_BLOC 16
 
@@ -19,6 +19,9 @@ static MapID_t mapActuelle = MAP_CENTRE;
 
 void Joueur_Init(void)
 {
+
+	// Initialisation de l'UART1 pour le HC-05 à 9600 bauds (vitesse classique téléphone)
+	    BSP_UART_init(UART1_ID, 9600);
     joueurX = 10;
     joueurY = 10;
     ancienX = joueurX;
@@ -48,7 +51,6 @@ void Joueur_DessinerSprite(int pixelX, int pixelY)
 /**
  * @brief Affiche le joueur
  */
-
 void Joueur_Afficher(void)
 {
     // On multiplie par 16 pour avoir les coordonnées pixels
@@ -69,15 +71,32 @@ void Joueur_Update(void)
     int newY = joueurY;
     int moved = 0;
 
-    /* Sauvegarde pour l'effacement */
     ancienX = joueurX;
     ancienY = joueurY;
 
-    /* Lecture boutons (Correction des axes Y et X) */
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1; }
+    /* --- 1. PRIORITÉ BLUETOOTH --- */
+    if (BSP_UART_data_ready(UART1_ID))
+    {
+        uint8_t c = BSP_UART_getc(UART1_ID);
+        switch(c)
+        {
+            case 'U': case 'F': newY--; moved = 1; break; // avancer
+            case 'D': case 'B': newY++; moved = 1; break; // reculer
+            case 'L':           newX--; moved = 1; break; // gauche
+            case 'R':           newX++; moved = 1; break; //droite
+        }
+    }
+
+    /* --- 2. BOUTONS (Seulement si pas de mouvement BT) --- */
+        if (!moved)
+        {
+            // On vérifie si le bouton est égal à GPIO_PIN_SET (1) ou GPIO_PIN_RESET (0)
+            // Teste avec == 1 d'abord, si ça avance tout seul, passe à == 0
+            if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP) == 0)         { newY--; moved = 1; }
+            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN) == 0){ newY++; moved = 1; }
+            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT) == 0){ newX--; moved = 1; }
+            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT) == 0){ newX++; moved = 1; }
+        }
 
     if (!moved) return;
 
