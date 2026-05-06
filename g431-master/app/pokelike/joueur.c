@@ -20,6 +20,8 @@ static MapID_t mapActuelle = MAP_CENTRE;
 
 void Joueur_Init(void)
 {
+	char filesize[50];
+	sprintf(filesize,"save.csv");
     joueurX = 10;
     joueurY = 10;
     ancienX = joueurX;
@@ -66,6 +68,7 @@ void Joueur_Effacer(void)
 
 void Joueur_Update(void)
 {
+	FILE *f = fopen("save.csv", "w");
     int newX = joueurX;
     int newY = joueurY;
     int moved = 0;
@@ -75,10 +78,10 @@ void Joueur_Update(void)
     ancienY = joueurY;
 
     /* Lecture boutons (Correction des axes Y et X) */
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1; }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1; }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1;fputs("up/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1;fputs("down/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1;fputs("left/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1;fputs("right/",f); }
 
     if (!moved) return;
 
