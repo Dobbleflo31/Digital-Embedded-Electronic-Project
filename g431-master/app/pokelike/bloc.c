@@ -12,7 +12,7 @@
 /**
  * @brief Associe chaque type de bloc à une couleur
  */
-uint16_t Bloc_GetCouleur(TypeBloc type)
+/*uint16_t Bloc_GetCouleur(TypeBloc type)
 {
     switch(type)
     {
@@ -31,12 +31,12 @@ uint16_t Bloc_GetCouleur(TypeBloc type)
         default:
             return ILI9341_COLOR_RED;
     }
-}
+}*/
 
 /**
  * @brief Définit si le bloc est traversable
  */
-uint8_t Bloc_EstTraversable(TypeBloc type)
+/*uint8_t Bloc_EstTraversable(TypeBloc type)
 {
     switch(type)
     {
@@ -51,4 +51,4 @@ uint8_t Bloc_EstTraversable(TypeBloc type)
         default:
             return 0;
     }
-}
+}*/

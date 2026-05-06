@@ -1,142 +1,119 @@
-#include <pokelike/Pokemons/Feu/Salameche.h>
 #include "joueur.h"
 #include "carte.h"
-#include "bloc.h"
 #include "config.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
 
-#define WIDTH  SPRITE_WIDTH
-#define HEIGHT SPRITE_HEIGHT
-
-#define TRANSPARENT 0xFFFF
-
-/* Taille bloc */
 #define TAILLE_BLOC 16
 
-/* Position du joueur */
-static int joueurX = 2;
-static int joueurY = 2;
+/* Position du joueur en cases */
+static int joueurX = 10;
+static int joueurY = 10;
 
 /* Ancienne position (pour effacer) */
-static int ancienX = 2;
-static int ancienY = 2;
+static int ancienX = 10;
+static int ancienY = 10;
 
+static MapID_t mapActuelle = MAP_CENTRE;
 
-
-
-/**
- * @brief Initialise le joueur
- */
 void Joueur_Init(void)
 {
-    joueurX = 2;
-    joueurY = 2;
-
+    joueurX = 10;
+    joueurY = 10;
     ancienX = joueurX;
     ancienY = joueurY;
+    mapActuelle = MAP_CENTRE;
+    Carte_Load(MAP_CENTRE);
 }
 
 /**
- * @brief Dessine le sprite
+ * @brief Dessine un carré rouge 4x4 centré
  */
-
-
-
-
 void Joueur_DessinerSprite(int pixelX, int pixelY)
 {
-    for(int y = 0; y < SPRITE_HEIGHT; y++)
+    // On dessine un bloc de 4x4 pixels (plus visible qu'un seul pixel !)
+    // On commence à +6 pour que le carré soit centré (6 + 4 + 6 = 16)
+    for(int y = 6; y < 10; y++)
     {
-        for(int x = 0; x < SPRITE_WIDTH; x++)
+        for(int x = 6; x < 10; x++)
         {
-            uint16_t color = salameche_map[y * SPRITE_WIDTH + x];
-
-            if(color != TRANSPARENT)
-            {
-                ILI9341_DrawPixel(pixelX + x, pixelY + y, color);
-            }
+            ILI9341_DrawPixel(pixelX + x, pixelY + y, 0xF800); // Rouge
         }
     }
 }
 
-
-
-
-/**
- * @brief Affiche le joueur
- */
 void Joueur_Afficher(void)
 {
-	int pixelX = joueurX * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_WIDTH)/2;
-	int pixelY = joueurY * TAILLE_BLOC + (TAILLE_BLOC - SPRITE_HEIGHT)/2;
-
+    // On multiplie par 16 pour avoir les coordonnées pixels
+    int pixelX = joueurX * TAILLE_BLOC;
+    int pixelY = joueurY * TAILLE_BLOC;
     Joueur_DessinerSprite(pixelX, pixelY);
 }
 
-/**
- * @brief Efface l'ancien joueur (redessine le bloc dessous)
- */
 void Joueur_Effacer(void)
 {
-    int pixelX = ancienX * TAILLE_BLOC;
-    int pixelY = ancienY * TAILLE_BLOC;
-
-    uint16_t tile = Carte_GetBloc(ancienX, ancienY);
-
-    draw_tile(tile, pixelX, pixelY);
+    // Redessine la tuile de la carte à l'ancienne position
+    draw_tile(Carte_GetBloc(ancienX, ancienY), ancienX * TAILLE_BLOC, ancienY * TAILLE_BLOC);
 }
 
-/**
- * @brief Mise à jour du joueur
- */
 void Joueur_Update(void)
 {
     int newX = joueurX;
     int newY = joueurY;
+    int moved = 0;
 
-    /* Sauvegarde ancienne position */
+    /* Sauvegarde pour l'effacement */
     ancienX = joueurX;
     ancienY = joueurY;
 
-    int moved = 0;
+    /* Lecture boutons (Correction des axes Y et X) */
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1; }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1; }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1; }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1; }
 
-    /* Lecture boutons */
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN))
+    if (!moved) return;
+
+    uint16_t bloc = Carte_GetBloc(newX, newY);
+
+    // --- LOGIQUE DE CHANGEMENT DE CARTE (BLOC 99) ---
+    if (bloc == 99)
     {
-        newY--;
-        moved = 1;
+        MapID_t prochaineMap = mapActuelle;
+        int transportX = newX;
+        int transportY = newY;
+
+        // Transitions depuis le CENTRE
+        if (newY < 0 && mapActuelle == MAP_CENTRE) { prochaineMap = MAP_NORD; transportY = 19; }
+        else if (newY >= 20 && mapActuelle == MAP_CENTRE) { prochaineMap = MAP_SUD; transportY = 0; }
+        else if (newX < 0 && mapActuelle == MAP_CENTRE) { prochaineMap = MAP_OUEST; transportX = 19; }
+        else if (newX >= 20 && mapActuelle == MAP_CENTRE) { prochaineMap = MAP_EST; transportX = 0; }
+
+        // Retours au CENTRE
+        else if (mapActuelle == MAP_NORD && newY >= 20) { prochaineMap = MAP_CENTRE; transportY = 0; }
+        else if (mapActuelle == MAP_SUD && newY < 0)    { prochaineMap = MAP_CENTRE; transportY = 19; }
+        else if (mapActuelle == MAP_OUEST && newX >= 20){ prochaineMap = MAP_CENTRE; transportX = 0; }
+        else if (mapActuelle == MAP_EST && newX < 0)    { prochaineMap = MAP_CENTRE; transportX = 19; }
+
+        if (prochaineMap != mapActuelle) {
+            mapActuelle = prochaineMap;
+            Carte_Load(mapActuelle);
+            joueurX = transportX;
+            joueurY = transportY;
+
+            ILI9341_Fill(0x0000);
+            Carte_Afficher();
+            HAL_Delay(150); // Petit délai pour ne pas enchaîner 2 maps trop vite
+            return;
+        }
     }
 
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))
-    {
-        newY++;
-        moved = 1;
-    }
-
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT))
-    {
-        newX--;
-        moved = 1;
-    }
-
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT))
-    {
-        newX++;
-        moved = 1;
-    }
-
-    /* Collision */
-    TypeBloc bloc = Carte_GetBloc(newX, newY);
-
-    if (Bloc_EstTraversable(bloc))
+    // --- MISE À JOUR POSITION ---
+    // Pour le moment on autorise tout sauf le bloc 99 (hors map)
+    if (bloc != 99)
     {
         joueurX = newX;
         joueurY = newY;
-
-        if(moved)
-        {
-            HAL_Delay(120);
-        }
+        HAL_Delay(120);
     }
 }

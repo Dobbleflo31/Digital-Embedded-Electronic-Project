@@ -10,72 +10,101 @@
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
 
-/* === CONFIG TILESET === */
-#define TILE_SIZE     16
 
-/* Dimensions écran en tiles */
-#define CARTE_LARGEUR  20
-#define CARTE_HAUTEUR  20
+// Pointeur vers la carte active
+static const uint16_t (*carte_actuelle)[CARTE_LARGEUR];
+static MapID_t currentMapID;
 
-/* === MAP (INDEX DE TILE) === */
-static uint16_t carte[CARTE_HAUTEUR][CARTE_LARGEUR] =
+/* === DEFINITION DU MONDE === */
+static const uint16_t monde[MAP_COUNT][CARTE_HAUTEUR][CARTE_LARGEUR] =
 {
-    {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
-    {0,2,2,2,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,2,2,2,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,3,1,1,1,0},
-	{0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
+    [MAP_CENTRE] = {
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0}, // Sortie NORD (x=9,10)
+        {0,1,1,1,1,1,1,1,1,2,2,0,0,0,0,0,0,0,0,0},
+        {0,2,2,2,1,1,1,1,1,2,2,0,0,0,0,0,0,0,0,0},
+        {0,1,1,1,1,1,1,1,1,2,2,0,0,5,6,7,0,0,0,0},
+        {0,1,1,1,1,1,1,1,1,2,2,0,0,8,9,8,0,0,0,0},
+        {2,2,2,2,2,2,2,2,2,2,2,0,0,10,10,10,0,0,0,0}, // Sortie OUEST (y=5)
+        {0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2}, // Sortie EST (y=6)
+        {0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},
+        {0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,3,1,1,1,0},
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0}, // Sortie SUD (x=9,10)
+    },
 
+    [MAP_NORD] = {
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+ [19] = {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+ 	 	{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},// Entrée vers CENTRE
+    },
+
+    [MAP_SUD] = {
+  [0] = {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0}, // Entrée vers CENTRE
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},
+    },
+
+    [MAP_OUEST] = {
+        [5] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2}, // Entrée vers CENTRE (y=5)
+    },
+
+    [MAP_EST] = {
+        [6] = {2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, // Entrée vers CENTRE (y=6)
+    }
 };
 
-/* === INIT === */
-void Carte_Init(void)
-{
+/* === FONCTIONS === */
+
+void Carte_Init(void) {
+    Carte_Load(MAP_CENTRE);
 }
 
-/* =========================================================
- *  DRAW TILE
- * ========================================================= */
-void draw_tile(uint16_t tileIndex, int screenX, int screenY)
-{
-    const uint16_t* tile = Tileset_GetTile(tileIndex);
-
-    for(int y = 0; y < TILE_SIZE; y++)
-    {
-        for(int x = 0; x < TILE_SIZE; x++)
-        {
-            uint16_t color = tile[y * TILE_SIZE + x];
-            ILI9341_DrawPixel(screenX + x, screenY + y, color);
-        }
+void Carte_Load(MapID_t mapID) {
+    if(mapID < MAP_COUNT) {
+        currentMapID = mapID;
+        carte_actuelle = monde[mapID];
     }
 }
 
-/* === AFFICHAGE COMPLET === */
-void Carte_Afficher(void)
-{
-    for(int y = 0; y < CARTE_HAUTEUR; y++)
-    {
-        for(int x = 0; x < CARTE_LARGEUR; x++)
-        {
-            draw_tile(
-                carte[y][x],
-                x * TILE_SIZE,
-                y * TILE_SIZE
-            );
-        }
-    }
-}
-
-/* === GET BLOC (pour joueur) === */
-uint16_t Carte_GetBloc(int x, int y)
-{
+uint16_t Carte_GetBloc(int x, int y) {
     if(x < 0 || x >= CARTE_LARGEUR || y < 0 || y >= CARTE_HAUTEUR)
-        return 0;
+        return 99; // Code pour "Changement de map requis"
 
-    return carte[y][x];
+    return carte_actuelle[y][x];
+}
+
+void draw_tile(uint16_t tileIndex, int screenX, int screenY) {
+    const uint16_t* tile = Tileset_GetTile(tileIndex);
+    for(int y = 0; y < TILE_SIZE; y++) {
+        for(int x = 0; x < TILE_SIZE; x++) {
+            uint16_t color = tile[y * TILE_SIZE + x];
+            if(color != 0x0000) ILI9341_DrawPixel(screenX + x, screenY + y, color);
+        }
+    }
+}
+
+void Carte_Afficher(void) {
+    for(int y = 0; y < CARTE_HAUTEUR; y++) {
+        for(int x = 0; x < CARTE_LARGEUR; x++) {
+            uint16_t currentTile = carte_actuelle[y][x];
+            // Fond herbe (0) pour les maisons (5+) ou arbres (3)
+            if(currentTile >= 3) {
+                draw_tile(0, x * TILE_SIZE, y * TILE_SIZE);
+            }
+            draw_tile(currentTile, x * TILE_SIZE, y * TILE_SIZE);
+        }
+    }
 }

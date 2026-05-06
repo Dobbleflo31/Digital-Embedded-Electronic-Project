@@ -22,10 +22,6 @@ void main_POKELIKE(void){
 	Joueur_Init();
 	Carte_Afficher();
 
-
-
-
-
 	while(1){
 		Joueur_Update();
 
