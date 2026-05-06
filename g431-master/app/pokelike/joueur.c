@@ -4,6 +4,8 @@
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
 #include "stm32g4_uart.h"
+#include <stdio.h>
+
 
 #define TAILLE_BLOC 16
 
@@ -20,8 +22,12 @@ static MapID_t mapActuelle = MAP_CENTRE;
 void Joueur_Init(void)
 {
 
+
 	// Initialisation de l'UART1 pour le HC-05 à 9600 bauds (vitesse classique téléphone)
 	    BSP_UART_init(UART1_ID, 9600);
+
+	char filesize[50];
+	sprintf(filesize,"save.csv");
     joueurX = 10;
     joueurY = 10;
     ancienX = joueurX;
@@ -67,12 +73,14 @@ void Joueur_Effacer(void)
 
 void Joueur_Update(void)
 {
+	FILE *f = fopen("save.csv", "w");
     int newX = joueurX;
     int newY = joueurY;
     int moved = 0;
 
     ancienX = joueurX;
     ancienY = joueurY;
+
 
     /* --- 1. PRIORITÉ BLUETOOTH --- */
     if (BSP_UART_data_ready(UART1_ID))
@@ -97,6 +105,13 @@ void Joueur_Update(void)
             else if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT) == 0){ newX--; moved = 1; }
             else if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT) == 0){ newX++; moved = 1; }
         }
+
+    /* Lecture boutons (Correction des axes Y et X) */
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1;fputs("up/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1;fputs("down/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1;fputs("left/",f); }
+    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1;fputs("right/",f); }
+
 
     if (!moved) return;
 

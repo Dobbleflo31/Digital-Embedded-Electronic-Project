@@ -13,7 +13,7 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-extern const uint16_t salameche_map[];
+extern uint16_t salameche_map[];
 
 #endif
 
