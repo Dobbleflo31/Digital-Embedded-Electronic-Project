@@ -3,6 +3,7 @@
 #include "config.h"
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "stm32g4_gpio.h"
+#include "usart.h"
 
 #define TAILLE_BLOC 16
 
