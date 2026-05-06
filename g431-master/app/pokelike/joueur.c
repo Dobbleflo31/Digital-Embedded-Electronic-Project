@@ -134,7 +134,7 @@ void Joueur_Update(void)
         }
     }
 
-    // --- MISE À JOUR POSITION ---
+    // --- MISE À JOUR POSITION --
     // Pour le moment on autorise tout sauf le bloc 99 (hors map)
     if (bloc != 99)
     {
