@@ -25,6 +25,7 @@
 #include "peripheriques/display.h"
 #include "peripheriques/button.h"
 #include <stdio.h>
+#include "stdbool.h"
 
 #define BLINK_DELAY		100	//ms
 
