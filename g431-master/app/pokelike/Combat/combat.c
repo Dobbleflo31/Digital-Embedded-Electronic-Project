@@ -8,15 +8,7 @@
 */
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
-#include "../Pokemons/Eau/Carapuce.h"
-#include "../Pokemons/Eau/Carabaffe.h"
-#include "../Pokemons/Eau/Tortank.h"
-#include "../Pokemons/Feu/Salameche.h"
-#include "../Pokemons/Feu/Reptincel.h"
-#include "../Pokemons/Feu/Dracaufeu.h"
-#include "../Pokemons/Plante/Bulbizarre.h"
-#include "../Pokemons/Plante/Herbizarre.h"
-#include "../Pokemons/Plante/Florizarre.h"
+#include "../Pokemons/pokemon.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -32,31 +24,31 @@ void combat_main(void){
 	int n=rand();
 	switch(n){
 	case 0:
-		combat_DessinerSprite(260,180,carapuce_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(0));
 		break;
 	case 1:
-		combat_DessinerSprite(260,180,carabaffe_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(1));
 		break;
 	case 2:
-		combat_DessinerSprite(260,180,tortank_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(2));
 		break;
 	case 3:
-		combat_DessinerSprite(260,180,salameche_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(3));
 		break;
 	case 4:
-		combat_DessinerSprite(260,180,reptincel_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(4));
 		break;
 	case 5:
-		combat_DessinerSprite(260,180,dracaufeu_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(5));
 		break;
 	case 6:
-		combat_DessinerSprite(260,180,bulbizarre_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(6));
 		break;
 	case 7:
-		combat_DessinerSprite(260,180,herbizarre_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(7));
 		break;
 	case 8:
-		combat_DessinerSprite(260,180,florizarre_map);
+		combat_DessinerSprite(260,180,pokemon_get_sprite(8));
 		break;
 	}
 
