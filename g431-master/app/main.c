@@ -60,6 +60,7 @@ int main(void)
 	BSP_ADC_init();
 	HAL_Init();
 
+
 	/* Initialisation des périphériques utilisés dans votre programme */
 	BSP_GPIO_enable();
 	BSP_UART_init(UART1_ID, 9600);   // HC-05 AT MODE

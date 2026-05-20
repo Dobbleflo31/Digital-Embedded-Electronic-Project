@@ -24,7 +24,8 @@ void Joueur_Init(void)
 
 
 	// Initialisation de l'UART1 pour le HC-05 à 9600 bauds (vitesse classique téléphone)
-	    BSP_UART_init(UART1_ID, 9600);
+	    BSP_UART_init(UART1_ID, 115200);
+	    BSP_UART_init(UART2_ID, 115200);
 
 	char filesize[50];
 	sprintf(filesize,"save.csv");
@@ -73,7 +74,6 @@ void Joueur_Effacer(void)
 
 void Joueur_Update(void)
 {
-	FILE *f = fopen("save.csv", "w");
     int newX = joueurX;
     int newY = joueurY;
     int moved = 0;
@@ -81,37 +81,31 @@ void Joueur_Update(void)
     ancienX = joueurX;
     ancienY = joueurY;
 
-
-    /* --- 1. PRIORITÉ BLUETOOTH --- */
+    /* --- 1. LECTURE BLUETOOTH (UART1) --- */
     if (BSP_UART_data_ready(UART1_ID))
     {
         uint8_t c = BSP_UART_getc(UART1_ID);
+        // Log de debug sur l'UART2 (ton PC)
+        printf("Recu: %c [0x%02X]\r\n", c, c);
+
         switch(c)
         {
-            case 'U': case 'F': newY--; moved = 1; break; // avancer
-            case 'D': case 'B': newY++; moved = 1; break; // reculer
-            case 'L':           newX--; moved = 1; break; // gauche
-            case 'R':           newX++; moved = 1; break; //droite
+            case 'U': case 'F': newY--; moved = 1; printf("Bouton: UP\r\n"); break;
+            case 'D': case 'B': newY++; moved = 1; printf("Bouton: DOWN\r\n");break;
+            case 'L':           newX--; moved = 1; printf("Bouton: LEFT\r\n");break;
+            case 'R':           newX++; moved = 1; printf("Bouton: RIGHT\r\n");break;
         }
     }
 
     /* --- 2. BOUTONS (Seulement si pas de mouvement BT) --- */
-        if (!moved)
-        {
-            // On vérifie si le bouton est égal à GPIO_PIN_SET (1) ou GPIO_PIN_RESET (0)
-            // Teste avec == 1 d'abord, si ça avance tout seul, passe à == 0
-            if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP) == 0)         { newY--; moved = 1; }
-            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN) == 0){ newY++; moved = 1; }
-            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT) == 0){ newX--; moved = 1; }
-            else if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT) == 0){ newX++; moved = 1; }
-        }
-
-    /* Lecture boutons (Correction des axes Y et X) */
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP))    { newY++; moved = 1;fputs("up/",f); }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN)){ newY--; moved = 1;fputs("down/",f); }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT)){ newX++; moved = 1;fputs("left/",f); }
-    if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT)){ newX--; moved = 1;fputs("right/",f); }
-
+    if (!moved)
+    {
+        // On teste ici la logique : change == 1 par == 0 si le perso bouge seul
+        if (HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP) == 0)         { newY--; moved = 1; printf("Bouton: UP\r\n"); }
+        else if (HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN) == 0){ newY++; moved = 1; printf("Bouton: DOWN\r\n"); }
+        else if (HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT) == 0){ newX--; moved = 1; printf("Bouton: LEFT\r\n"); }
+        else if (HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT) == 0){ newX++; moved = 1; printf("Bouton: RIGHT\r\n"); }
+    }
 
     if (!moved) return;
 
