@@ -10,8 +10,6 @@
 #include "tft_ili9341/stm32g4_fonts.h"
 #include "../Pokemons/pokemon.h"
 #include <stdlib.h>
-#include <time.h>
-#define _POSIX_TIMERS
 #include "peripheriques/display.h"
 #include "peripheriques/button.h"
 
@@ -128,7 +126,9 @@ void combat_menu_attaque(){
 }
 void combat_affichage(){
 	ILI9341_Fill(ILI9341_COLOR_BLACK);
-	srand(time(NULL));
+	int x = 0;
+	uintptr_t y =(uintptr_t)&x;
+	srand(y);
 	int n=rand()%9;
 	switch(n){
 	case 0:

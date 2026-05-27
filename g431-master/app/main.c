@@ -26,6 +26,7 @@
 #include "peripheriques/button.h"
 #include <stdio.h>
 #include "stdbool.h"
+#include <stdlib.h>
 
 #define BLINK_DELAY		100	//ms
 
@@ -45,6 +46,7 @@ bool char_received(uart_id_t uart_id)
 	else
 		return false;
 }
+
 
 //modification de test
 //deuxieme modif
@@ -73,7 +75,13 @@ int main(void)
 	BUTTONS_init();
 	DISPLAY_init();
 
-
+	while (1){
+		int x = 0;
+		uintptr_t y =(uintptr_t)&x;
+		srand(y);
+		int n=rand()%9;
+		printf("%d"+n);
+	}
 
 
 	// menu
