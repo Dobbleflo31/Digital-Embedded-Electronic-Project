@@ -1,8 +1,7 @@
 /*
- * main.h
- *
- *  Created on: 27 mars 2026
- *      Author: maxim
+ *  @file: main.h
+ *	@date: 27 mars 2026
+ *  @author: Maxim, Florian
  */
 
 #ifndef POKELIKE_MAIN_H_

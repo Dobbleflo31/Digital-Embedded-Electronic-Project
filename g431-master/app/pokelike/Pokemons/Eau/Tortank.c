@@ -1,8 +1,7 @@
 /*
- * Tortank.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Tortank.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Eau/Tortank.h>
@@ -12,7 +11,9 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Tortank_Liste_Attaque(void){
 	struct Attaque Coud_Krane;
 	Coud_Krane.ATK=100;

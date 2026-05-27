@@ -1,13 +1,16 @@
 /*
- * Attaque.h
+ * 	@file: Attaque.h
  *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ *  @date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_POKEMONS_ATTAQUE_H_
 #define POKELIKE_POKEMONS_ATTAQUE_H_
 
+/**
+ * @brief structure définissant les propriétés d'une attaque
+ */
 struct Attaque {
   int ATK;
   int NIV;

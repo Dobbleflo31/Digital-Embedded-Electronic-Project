@@ -1,8 +1,7 @@
 /*
- * Florizarre.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Florizarre.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Plante/Florizarre.h>
@@ -12,7 +11,9 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Florizarre_Liste_Attaque(){
 	struct Attaque Croissance;
 	Croissance.ATK=0;

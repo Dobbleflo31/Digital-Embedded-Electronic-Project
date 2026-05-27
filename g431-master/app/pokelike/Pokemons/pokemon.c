@@ -1,8 +1,7 @@
 /*
- * pokemon.c
- *
- *  Created on: 6 mai 2026
- *      Author: maxim
+ * 	@file: pokemon.c
+ *	@date: 6 mai 2026
+ *  @author: maxim
  */
 
 #include "../Pokemons/Eau/Carapuce.h"
@@ -15,6 +14,11 @@
 #include "../Pokemons/Plante/Herbizarre.h"
 #include "../Pokemons/Plante/Florizarre.h"
 
+/**
+ * @brief Récuperation d'une image de pokemon
+ * @param n: indice d'une image de pokemon
+ * @retval matrice de l'image d'un pokemon
+ */
 uint16_t * pokemon_get_sprite(int n){
 	switch(n){
 		case 0:

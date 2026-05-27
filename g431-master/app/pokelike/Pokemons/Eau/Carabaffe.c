@@ -1,8 +1,7 @@
 /*
- * Carabaffe.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Carabaffe.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Eau/Carabaffe.h>
@@ -14,7 +13,9 @@
 
 int Niveau_evo_Carabaffe = 36;
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Carabaffe_Liste_Attaque(){
 	struct Attaque Morsure;
 	Morsure.ATK=60;

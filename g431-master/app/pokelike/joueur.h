@@ -1,3 +1,9 @@
+/**
+ * @file: joueur.h
+ * @date: 1 avr. 2026
+ * @author: Florian
+ */
+
 #ifndef POKELIKE_JOUEUR_H_
 #define POKELIKE_JOUEUR_H_
 

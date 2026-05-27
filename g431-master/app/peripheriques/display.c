@@ -5,23 +5,15 @@
  *      Author: Nirgal
  */
 #include <peripheriques/display.h>
-#include "gameoflife/gameoflife.h"
-#include "stm32g4xx_hal.h"
 #include "stm32g4_systick.h"
 #include "TFT_ili9341/stm32g4_ili9341.h"
 #include "TFT_ili9341/stm32g4_fonts.h"
 
-
-//Constantes privées
-
-
-//Prototype des fonctions privées
 static bool reset = false;
 
-//_____________________________________
-
-//Fonctions publiques
-
+/**
+ * @brief Initialise l'écran
+ */
 void DISPLAY_init(void) {
 	ILI9341_Init();
 	ILI9341_Fill(ILI9341_COLOR_WHITE);
@@ -29,7 +21,10 @@ void DISPLAY_init(void) {
 	reset = true;
 }
 
-
+/**
+ * @brief  Met a jour l'écran avec une nouvelle matrice
+ * @param  grid : matrice a afficher
+ */
 void DISPLAY_refresh(grid_t *grid)
 {
 	uint8_t i,j;
@@ -45,11 +40,6 @@ void DISPLAY_refresh(grid_t *grid)
 			}
 		}
 	reset = false;
-	//TODO
 }
 
-
-//_____________________________________
-
-//Fonctions privées
 

@@ -1,9 +1,8 @@
 /*
- * combat.h
- *
- *  Created on: 6 mai 2026
- *      Author: maxim
- */
+ * 	@file: combat.h
+ *	@date: 29 avr. 2026
+ *  @author: maxim
+*/
 
 #ifndef POKELIKE_COMBAT_COMBAT_H_
 #define POKELIKE_COMBAT_COMBAT_H_

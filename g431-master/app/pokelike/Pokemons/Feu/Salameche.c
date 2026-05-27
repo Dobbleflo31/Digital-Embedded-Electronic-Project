@@ -1,3 +1,9 @@
+/*
+ * 	@file: Salameche.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
+ */
+
 #include <pokelike/Pokemons/Feu/Salameche.h>
 #include <stdint.h>
 #include "pokelike/Pokemons/Attaque.h"
@@ -7,7 +13,9 @@
 
 int Niveau_evo_Salameche = 16;
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Salameche_Liste_Attaque(){
 	struct Attaque Griffe;
 	Griffe.ATK=40;

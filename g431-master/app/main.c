@@ -1,9 +1,9 @@
 /**
  *******************************************************************************
  * @file 	main.c
- * @author 	jjo
- * @date 	Mar 29, 2024
- * @brief	Fichier principal de votre projet sur carte Nucléo STM32G431KB
+ * @author 	Maxim Florian Axel
+ * @date 	Mar 29, 2025
+ * @brief	Fichier principal du projet
  *******************************************************************************
  */
 
@@ -26,65 +26,38 @@
 #include "peripheriques/button.h"
 #include <stdio.h>
 #include "stdbool.h"
-#include <stdlib.h>
 
-#define BLINK_DELAY		100	//ms
-
-void write_LED(bool b)
-{
-	HAL_GPIO_WritePin(LED_GREEN_GPIO, LED_GREEN_PIN, b);
-}
-
-bool char_received(uart_id_t uart_id)
-{
-	if( BSP_UART_data_ready(uart_id) )	/* Si un caractère est reçu sur l'UART 2*/
-	{
-		/* On "utilise" le caractère pour vider le buffer de réception */
-		BSP_UART_get_next_byte(uart_id);
-		return true;
-	}
-	else
-		return false;
-}
-
-
-//modification de test
-//deuxieme modif
 
 /**
-  * @brief  Point d'entrée de votre application
-  */
+ * @brief Point d'entrée du programme et initialisation des periphériques
+ */
 int main(void)
 {
-	/* Cette ligne doit rester la première de votre main !
-	 * Elle permet d'initialiser toutes les couches basses des drivers (Hardware Abstraction Layer),
-	 * condition préalable indispensable à l'exécution des lignes suivantes.
-	 */
 	BSP_ADC_init();
 	HAL_Init();
 
 
-	/* Initialisation des périphériques utilisés dans votre programme */
+	/* Initialisation des périphériques utilisés dans le programme */
 	BSP_GPIO_enable();
 	BSP_UART_init(UART1_ID, 9600);   // HC-05 AT MODE
 	BSP_UART_init(UART2_ID, 115200);  // Docklight PC
 
 	/* Indique que les printf sont dirigés vers l'UART2 */
-		BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
+	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
 	BUTTONS_init();
 	DISPLAY_init();
 
-	while (1){
+	/*while (1){
 		int x = 0;
 		uintptr_t y =(uintptr_t)&x;
 		srand(y);
 		int n=rand()%9;
 		printf("%d"+n);
-	}
+	}*/
 
 
-	// menu
+	/* menu */
 	int count = 1;
 
 	ILI9341_Fill(ILI9341_COLOR_WHITE);
@@ -98,8 +71,6 @@ int main(void)
 
 	while (1)
 	{
-
-
 		    if (BUTTON_down_read()){
 		        if (count < 4){
 		        	// efface curseur
@@ -110,6 +81,7 @@ int main(void)
 		            HAL_Delay(150);
 		        }
 		    }
+
 		    if (BUTTON_up_read()){
 		        if (count > 1){
 		            // efface curseur
@@ -120,7 +92,6 @@ int main(void)
 		            HAL_Delay(150);
 		        }
 		    }
-
 
 		if (BUTTON_center_read()){
 			switch (count){
@@ -137,10 +108,7 @@ int main(void)
 					ILI9341_DisplayOff();
 					break;
 			}
-
 		}
-
-
 	}
 }
 

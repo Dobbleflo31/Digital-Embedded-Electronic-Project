@@ -1,8 +1,7 @@
 /*
- * Dracaufeu.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Dracaufeu.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 #include <pokelike/Pokemons/Feu/Dracaufeu.h>
 #include <stdint.h>
@@ -11,7 +10,9 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Dracaufeu_Liste_Attaque(){
 	struct Attaque Lance_Flamme;
 	Lance_Flamme.ATK=95;
@@ -20,6 +21,7 @@ void Dracaufeu_Liste_Attaque(){
 	Danseflamme.ATK=15;
 	Danseflamme.NIV=46;
 }
+
 uint16_t dracaufeu_map[] = {
 		// 'Sprite_0006_RB', 56x56px
 		0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,

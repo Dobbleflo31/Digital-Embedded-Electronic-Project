@@ -1,8 +1,7 @@
 /*
- * Herbizarre.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Herbizarre.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Plante/Herbizarre.h>
@@ -15,7 +14,9 @@
 
 int Niveau_evo_Herbizarre = 32;
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Herbizarre_Liste_Attaque(){
 	struct Attaque Poudre_Toxic;
 	Poudre_Toxic.ATK=0;

@@ -1,3 +1,9 @@
+/*
+ * 	@file: bloc.h
+ *	@date: 1 avr. 2026
+ *  @author: Florian
+ */
+
 #ifndef POKELIKE_BLOC_H_
 #define POKELIKE_BLOC_H_
 

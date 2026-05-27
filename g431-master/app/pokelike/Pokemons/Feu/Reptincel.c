@@ -1,9 +1,9 @@
 /*
- * Reptincel.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Reptincel.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
+
 #include <pokelike/Pokemons/Feu/Reptincel.h>
 #include <stdint.h>
 #include "pokelike/Pokemons/Attaque.h"
@@ -13,7 +13,9 @@
 
 int Niveau_evo_Reptincel = 36;
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Reptincel_Liste_Attaque(){
 	struct Attaque Frenesie;
 	Frenesie.ATK=20;

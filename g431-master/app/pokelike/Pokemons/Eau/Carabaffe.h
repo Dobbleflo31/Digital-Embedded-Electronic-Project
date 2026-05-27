@@ -1,8 +1,7 @@
 /*
- * Carabaffe.h
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Carabaffe.h
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_POKEMONS_EAU_CARABAFFE_H_

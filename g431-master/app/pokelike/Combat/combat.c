@@ -1,17 +1,16 @@
 /*
-
- * combat.c
- *
- *  Created on: 29 avr. 2026
- *      Author: maxim
-
+ * 	@file: combat.c
+ *	@date: 29 avr. 2026
+ *  @author: maxim
 */
+
 #include "tft_ili9341/stm32g4_ili9341.h"
 #include "tft_ili9341/stm32g4_fonts.h"
 #include "../Pokemons/pokemon.h"
 #include <stdlib.h>
 #include "peripheriques/display.h"
 #include "peripheriques/button.h"
+#include "stdbool.h"
 
 
 #define HEIGHT 56
@@ -22,18 +21,25 @@ static void combat_affichage(void);
 static void combat_menu(void);
 static void combat_menu_attaque(void);
 
-void combat_main(void){
+/**
+ * @brief fonction principal lors d'un combat
+ */
+void combat_main(){
 	combat_affichage();
 	combat_menu();
 }
 
+/**
+ * @brief menu lors d'un combat
+ */
 void combat_menu(){
 	ILI9341_Puts(250, 160, "Attaque", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(235, 160, ">", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(250, 180, "Pokeball", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	ILI9341_Puts(250, 200, "Soin", &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 	int count=3;
-	while (1){
+	bool sortie = false;
+	while (sortie==false){
 		if (BUTTON_down_read()){
 			if (count > 1){
 				// efface curseur
@@ -60,17 +66,22 @@ void combat_menu(){
 			switch (count){
 				case 1:
 					combat_menu_attaque();
+					sortie = true;
 					break;
 				case 2:
+					sortie = true;
 					break;
 				case 3:
+					sortie = true;
 					break;
 			}
-			break;
 		}
 	}
 }
 
+/**
+ * @brief menu lorsque l'option "Attaque a été selectionnée
+ */
 void combat_menu_attaque(){
 		char * Attaque1="attaque";
 		char * Attaque2="attaque";
@@ -82,7 +93,8 @@ void combat_menu_attaque(){
 		ILI9341_Puts(250, 200, Attaque3, &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 		ILI9341_Puts(250, 220, Attaque4, &Font_7x10, ILI9341_COLOR_BLACK, ILI9341_COLOR_WHITE);
 		int count=3;
-		while (1){
+		bool sortie = false;
+		while (sortie == false){
 			if (BUTTON_down_read()){
 				if (count > 1){
 					// efface curseur
@@ -119,11 +131,18 @@ void combat_menu_attaque(){
 					case 4:
 						//return Attaque4;
 						break;
-				}
-				break;
+					default:
+						//return Attaque1;
+						break;
 			}
+			sortie = false;
 		}
+	}
 }
+
+/**
+ * @brief Gestion de l'affichage lors d'un combat
+ */
 void combat_affichage(){
 	ILI9341_Fill(ILI9341_COLOR_BLACK);
 	int x = 0;
@@ -161,6 +180,12 @@ void combat_affichage(){
 	}
 }
 
+/**
+ * @brief Dessin d'une image lors d'un combat
+ * @param x: origine en x de l'image
+ * @param y: origine en y de l'image
+ * @param pokemon_map: matrice de l'image
+ */
 void combat_DessinerSprite(int pixelX, int pixelY, uint16_t pokemon_map[])
 {
     for(int y = 0; y < HEIGHT; y++)

@@ -1,3 +1,9 @@
+/**
+ * @file: joueur.c
+ * @date: 1 avr. 2026
+ * @author: Florian
+ */
+
 #include "joueur.h"
 #include "carte.h"
 #include "config.h"
@@ -19,9 +25,11 @@ static int ancienY = 10;
 
 static MapID_t mapActuelle = MAP_CENTRE;
 
+/**
+ * @brief Initialisation du joueur
+ */
 void Joueur_Init(void)
 {
-
 
 	// Initialisation de l'UART1 pour le HC-05 à 9600 bauds (vitesse classique téléphone)
 	    BSP_UART_init(UART1_ID, 115200);
@@ -38,7 +46,9 @@ void Joueur_Init(void)
 }
 
 /**
- * @brief Dessine un carré rouge 4x4 centré
+ * @brief Dessine l'image du joueur
+ * @param pixelX: coordonnée en x du joueur
+ * @param pixelY: coordonnée en y du joueur
  */
 
 void Joueur_DessinerSprite(int pixelX, int pixelY)
@@ -66,12 +76,18 @@ void Joueur_Afficher(void)
     Joueur_DessinerSprite(pixelX, pixelY);
 }
 
+/**
+ * @brief Efface le joueur
+ */
 void Joueur_Effacer(void)
 {
     // Redessine la tuile de la carte à l'ancienne position
     draw_tile(Carte_GetBloc(ancienX, ancienY), ancienX * TAILLE_BLOC, ancienY * TAILLE_BLOC);
 }
 
+/**
+ * @brief met a jour la position du joueur en fonction de l'entrée de l'utilisateur
+ */
 void Joueur_Update(void)
 {
     int newX = joueurX;

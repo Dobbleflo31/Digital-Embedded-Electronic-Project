@@ -1,8 +1,7 @@
 /*
- * carte.c
- *
- *  Created on: 1 avr. 2026
- *      Author: flori
+ *  @file: carte.c
+ *	@date: 1 avr. 2026
+ *  @author: Florian
  */
 
 #include "carte.h"
@@ -74,12 +73,18 @@ static const uint16_t monde[MAP_COUNT][CARTE_HAUTEUR][CARTE_LARGEUR] =
     }
 };
 
-/* === FONCTIONS === */
 
+/**
+ * @brief Initialisation de la carte
+ */
 void Carte_Init(void) {
     Carte_Load(MAP_CENTRE);
 }
 
+/**
+ * @brief Charge une carte en fonction de l'identifiant donné
+ * @param mapID: numero d'identification d'une carte connue
+ */
 void Carte_Load(MapID_t mapID) {
     if(mapID < MAP_COUNT) {
         currentMapID = mapID;
@@ -87,6 +92,13 @@ void Carte_Load(MapID_t mapID) {
     }
 }
 
+/**
+ * @brief
+ * @param x: position en x du bloc à récupérer
+ * @param y: position en y du bloc à récupérer
+ * @retval 99 si paramètres en dehors de la carte
+ * @retval le bloc a la position donnée
+ */
 uint16_t Carte_GetBloc(int x, int y) {
     if(x < 0 || x >= CARTE_LARGEUR || y < 0 || y >= CARTE_HAUTEUR)
         return 99; // Code pour "Changement de map requis"
@@ -94,6 +106,12 @@ uint16_t Carte_GetBloc(int x, int y) {
     return carte_actuelle[y][x];
 }
 
+/**
+ * @brief Dessine une partie de carte donné
+ * @param tileIndex: numero d'identification de la partie à dessiner
+ * @param screenX:
+ * @param screenY:
+ */
 void draw_tile(uint16_t tileIndex, int screenX, int screenY) {
     const uint16_t* tile = Tileset_GetTile(tileIndex);
     for(int y = 0; y < TILE_SIZE; y++) {
@@ -104,6 +122,9 @@ void draw_tile(uint16_t tileIndex, int screenX, int screenY) {
     }
 }
 
+/**
+ * @brief Afficher la carte complete
+ */
 void Carte_Afficher(void) {
     for(int y = 0; y < CARTE_HAUTEUR; y++) {
         for(int x = 0; x < CARTE_LARGEUR; x++) {

@@ -1,8 +1,7 @@
 /*
- * Herbizarre.h
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Herbizarre.h
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_SPRITE_HERBIZARRE_H_

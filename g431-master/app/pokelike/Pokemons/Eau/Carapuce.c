@@ -1,8 +1,7 @@
 /*
- * Carapuce.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Carapuce.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Eau/Carapuce.h>
@@ -14,7 +13,9 @@
 
 int Niveau_evo_Carapuce = 16;
 
-//Attaques
+/**
+ * @brief liste des attaques
+ */
 void Carapuce_Liste_Attaque(){
 	struct Attaque Charge;
 	Charge.ATK=35;
@@ -29,6 +30,7 @@ void Carapuce_Liste_Attaque(){
 	Pistolet_a_O.ATK=40;
 	Pistolet_a_O.NIV=15;
 }
+
 uint16_t carapuce_map[] = {
 		// 'Sprite_0007_RB', 56x56px
 		0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,

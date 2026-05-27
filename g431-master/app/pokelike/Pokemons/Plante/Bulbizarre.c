@@ -1,8 +1,7 @@
 /*
- * Bulbizarre.c
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Bulbizarre.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #include <pokelike/Pokemons/Plante/Bulbizarre.h>
@@ -15,8 +14,10 @@
 
 int Niveau_evo_Bulbizarre = 16;
 
-//Attaques
 
+/**
+ * @brief liste des attaques
+ */
 void Bulbizarre_Liste_Attaque(){
 	struct Attaque Charge;
 	Charge.ATK=35;

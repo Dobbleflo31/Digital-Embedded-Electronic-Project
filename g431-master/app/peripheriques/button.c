@@ -28,6 +28,9 @@
 void BUTTONS_process_ms(void);
 static volatile uint32_t t = 0;
 
+/**
+ * @brief fonction d'initialisation des boutons
+ */
 void BUTTONS_init(void)
 {
 	//Initialisation du port du bouton bleu (carte Nucleo)
@@ -46,31 +49,49 @@ void BUTTONS_process_ms(void)
 		t--;
 }
 
+/**
+ * @brief lecture du bouton gauche
+ */
 int BUTTON_left_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_LEFT, PIN_BUTTON_LEFT);
 }
 
+/**
+ * @brief lecture du bouton droit
+ */
 int BUTTON_right_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_RIGHT, PIN_BUTTON_RIGHT);
 }
 
+/**
+ * @brief lecture du bouton haut
+ */
 int BUTTON_up_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_UP, PIN_BUTTON_UP);
 }
 
+/**
+ * @brief lecture du bouton bas
+ */
 int BUTTON_down_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_DOWN, PIN_BUTTON_DOWN);
 }
 
+/**
+ * @brief lecture du bouton central
+ */
 int BUTTON_center_read(void)
 {
 	return !HAL_GPIO_ReadPin(GPIO_BUTTON_CENTER, PIN_BUTTON_CENTER);
 }
 
+/**
+ * @brief  Met a jour les boutons
+ */
 void BUTTONS_update(button_e * button_left_event, button_e * button_right_event, button_e * button_up_event, button_e * button_down_event, button_e * button_center_event)
 {
 	static bool previous_button_left = false;

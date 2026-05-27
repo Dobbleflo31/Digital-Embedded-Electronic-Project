@@ -1,10 +1,9 @@
 /*
- * main.c
- *
- *  Created on: 27 mars 2026
- *      Author: maxim
- *
+ *  @file: main.c
+ *	@date: 27 mars 2026
+ *  @author: Maxim, Florian
  */
+
 #include "pokelike/main.h"
 
 #include "peripheriques/button.h"
@@ -15,6 +14,9 @@
 #include "carte.h"
 #include "joueur.h"
 
+/**
+ * @brief Fonction principale du jeu Pokelike
+ */
 void main_POKELIKE(void){
 	BUTTONS_init();
 	DISPLAY_init();
@@ -24,10 +26,8 @@ void main_POKELIKE(void){
 
 	while(1){
 		Joueur_Update();
-
 		Joueur_Effacer();
 		Joueur_Afficher();
-
 		HAL_Delay(50);
 	}
 }

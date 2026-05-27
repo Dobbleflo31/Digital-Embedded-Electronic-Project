@@ -1,9 +1,9 @@
 /*
- * tileset.h
- *
- *  Created on: 27 avr. 2026
- *      Author: flori
+ * @file : tileset.h
+ * @date: 27 avr. 2026
+ * @author: Florian
  */
+
 #ifndef TILESET_H
 #define TILESET_H
 

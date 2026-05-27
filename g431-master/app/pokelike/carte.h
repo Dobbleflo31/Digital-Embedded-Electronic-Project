@@ -1,3 +1,9 @@
+/*
+ *  @file: carte.h
+ *	@date: 1 avr. 2026
+ *  @author: Florian
+ */
+
 #ifndef POKELIKE_CARTE_H_
 #define POKELIKE_CARTE_H_
 #include "bloc.h"

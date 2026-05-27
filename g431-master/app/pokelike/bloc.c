@@ -1,8 +1,7 @@
 /*
- * bloc.c
- *
- *  Created on: 1 avr. 2026
- *      Author: flori
+ * 	@file: bloc.c
+ *	@date: 1 avr. 2026
+ *  @author: Florian
  */
 
 #include "bloc.h"

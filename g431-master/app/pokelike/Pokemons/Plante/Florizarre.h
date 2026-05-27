@@ -1,8 +1,7 @@
 /*
- * Florizarre.h
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: florizarre.h
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_POKEMONS_PLANTE_FLORIZARRE_H_

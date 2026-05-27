@@ -1,8 +1,7 @@
 /*
- * charizard.h
- *
- *  Created on: 23 avr. 2026
- *      Author: flori
+ * 	@file: Salameche.c
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_POKEMONS_FEU_SALAMECHE_H_

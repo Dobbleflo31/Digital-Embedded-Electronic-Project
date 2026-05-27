@@ -1,8 +1,7 @@
 /*
- * Bulbizarre.h
- *
- *  Created on: 23 avr. 2026
- *      Author: maxim
+ * 	@file: Bulbizarre.h
+ *	@date: 23 avr. 2026
+ *  @author: Maxim
  */
 
 #ifndef POKELIKE_SPRITE_BULBIZARRE_H_
