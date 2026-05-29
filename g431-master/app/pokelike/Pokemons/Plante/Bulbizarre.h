@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Bulbizarre.h
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,5 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 extern uint16_t bulbizarre_map[];
+void Bulbizarre_Liste_Attaque(void);
 
 #endif /* POKELIKE_SPRITE_BULBIZARRE_H_ */

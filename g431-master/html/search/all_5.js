@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['gameoflife_2ec_78',['gameoflife.c',['../gameoflife_8c.html',1,'']]],
+  ['gameoflife_2eh_79',['gameoflife.h',['../gameoflife_8h.html',1,'']]],
+  ['gameoflife_5fcreate_5fcell_5fxpt2046_80',['GAMEOFLIFE_create_cell_XPT2046',['../gameoflife_8c.html#a4dc07a4708eeef9b70d59ac2eb9fa010',1,'gameoflife.c']]],
+  ['gameoflife_5fcreate_5fpattern_81',['GAMEOFLIFE_create_pattern',['../gameoflife_8c.html#a8c26661ecc22d30115ea2429a83bff68',1,'gameoflife.c']]],
+  ['gameoflife_5finit_82',['GAMEOFLIFE_init',['../gameoflife_8c.html#a8dbd37c309fa40113ffb0c473a8954c3',1,'GAMEOFLIFE_init(void):&#160;gameoflife.c'],['../gameoflife_8h.html#a8dbd37c309fa40113ffb0c473a8954c3',1,'GAMEOFLIFE_init(void):&#160;gameoflife.c']]],
+  ['gameoflife_5fnext_5fgeneration_83',['GAMEOFLIFE_next_generation',['../gameoflife_8c.html#af64373ed7c3684a620991a76c54b6320',1,'gameoflife.c']]],
+  ['gameoflife_5fprocess_5fmain_84',['GAMEOFLIFE_process_main',['../gameoflife_8c.html#a441ddb375941a9008589ce0b863acb9c',1,'GAMEOFLIFE_process_main(void):&#160;gameoflife.c'],['../gameoflife_8h.html#a441ddb375941a9008589ce0b863acb9c',1,'GAMEOFLIFE_process_main(void):&#160;gameoflife.c']]],
+  ['gameoflife_5fprocess_5fms_85',['GAMEOFLIFE_process_ms',['../gameoflife_8c.html#a7c5752b7d2db5913503c07c5be4e633e',1,'gameoflife.c']]],
+  ['generation_5fperiod_5fms_86',['GENERATION_PERIOD_MS',['../gameoflife_8c.html#a3fe2b17cd138e03d5af82f04e9a5737a',1,'gameoflife.c']]],
+  ['gpio_5fbutton_5fcenter_87',['GPIO_BUTTON_CENTER',['../button_8c.html#ab469ef4ee2680f5b4de1488227736637',1,'button.c']]],
+  ['gpio_5fbutton_5fdown_88',['GPIO_BUTTON_DOWN',['../button_8c.html#a2730f5e9c3052df4e34290340ede48ca',1,'button.c']]],
+  ['gpio_5fbutton_5fleft_89',['GPIO_BUTTON_LEFT',['../button_8c.html#a2ad52fd412b2b773b405574fb7aac6a9',1,'button.c']]],
+  ['gpio_5fbutton_5fright_90',['GPIO_BUTTON_RIGHT',['../button_8c.html#a0f7e491462e1431cd27d5ac7a87e5264',1,'button.c']]],
+  ['gpio_5fbutton_5fup_91',['GPIO_BUTTON_UP',['../button_8c.html#a833d10c65f63288b216bbbef2e211ab1',1,'button.c']]],
+  ['grid0_92',['grid0',['../gameoflife_8c.html#aab090ad7eb6b25c2100d8e2328a7e5c7',1,'gameoflife.c']]],
+  ['grid1_93',['grid1',['../gameoflife_8c.html#a409de635dee77e217339ebc9b3f2433a',1,'gameoflife.c']]],
+  ['grid_5ft_94',['grid_t',['../structgrid__t.html',1,'']]]
+];

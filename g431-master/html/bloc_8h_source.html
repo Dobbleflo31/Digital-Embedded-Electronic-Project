@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu:  Fichier source de app/pokelike/bloc.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_5b8666b3d165df83f84f4489db184739.html">pokelike</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">bloc.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bloc_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef POKELIKE_BLOC_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define POKELIKE_BLOC_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4af">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa952412eef5f30f0c67d65057f5caa6e4">   16</a></span>&#160;    <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa952412eef5f30f0c67d65057f5caa6e4">BLOC_HERBE</a> = 0,</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa70c422690da61d329c84f88e8d71e7f5">   17</a></span>&#160;    <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa70c422690da61d329c84f88e8d71e7f5">BLOC_MUR</a>,</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afaa7b1cc8cce9cbe790e4eb11b278e2f93">   18</a></span>&#160;    <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afaa7b1cc8cce9cbe790e4eb11b278e2f93">BLOC_EAU</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa6bf1a5aab809263c834be8372612d362">   19</a></span>&#160;    <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa6bf1a5aab809263c834be8372612d362">BLOC_SABLE</a>,</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa2aec0c6503c4083d119378072da7276a">   20</a></span>&#160;    <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa2aec0c6503c4083d119378072da7276a">BLOC_MAX</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4af">TypeBloc</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;uint16_t <a class="code" href="bloc_8h.html#ae674a4fac2860cc93d18c8d8b8cd807d">Bloc_GetCouleur</a>(<a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4af">TypeBloc</a> type);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;uint8_t <a class="code" href="bloc_8h.html#a539b8859d1be454c039ee318f6923be2">Bloc_EstTraversable</a>(<a class="code" href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4af">TypeBloc</a> type);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* POKELIKE_BLOCK_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4afa2aec0c6503c4083d119378072da7276a"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa2aec0c6503c4083d119378072da7276a">BLOC_MAX</a></div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00020">bloc.h:20</a></div></div>
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4afa70c422690da61d329c84f88e8d71e7f5"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa70c422690da61d329c84f88e8d71e7f5">BLOC_MUR</a></div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00017">bloc.h:17</a></div></div>
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4afa6bf1a5aab809263c834be8372612d362"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa6bf1a5aab809263c834be8372612d362">BLOC_SABLE</a></div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00019">bloc.h:19</a></div></div>
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4afa952412eef5f30f0c67d65057f5caa6e4"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afa952412eef5f30f0c67d65057f5caa6e4">BLOC_HERBE</a></div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00016">bloc.h:16</a></div></div>
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4af"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4af">TypeBloc</a></div><div class="ttdeci">TypeBloc</div><div class="ttdoc">Types de blocs disponibles dans le jeu.</div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00015">bloc.h:15</a></div></div>
+<div class="ttc" id="abloc_8h_html_a2dcc279001507ff7fdabe48e9e73c4afaa7b1cc8cce9cbe790e4eb11b278e2f93"><div class="ttname"><a href="bloc_8h.html#a2dcc279001507ff7fdabe48e9e73c4afaa7b1cc8cce9cbe790e4eb11b278e2f93">BLOC_EAU</a></div><div class="ttdef"><b>Definition:</b> <a href="bloc_8h_source.html#l00018">bloc.h:18</a></div></div>
+<div class="ttc" id="abloc_8h_html_ae674a4fac2860cc93d18c8d8b8cd807d"><div class="ttname"><a href="bloc_8h.html#ae674a4fac2860cc93d18c8d8b8cd807d">Bloc_GetCouleur</a></div><div class="ttdeci">uint16_t Bloc_GetCouleur(TypeBloc type)</div><div class="ttdoc">Retourne la couleur associée à un bloc.</div></div>
+<div class="ttc" id="abloc_8h_html_a539b8859d1be454c039ee318f6923be2"><div class="ttname"><a href="bloc_8h.html#a539b8859d1be454c039ee318f6923be2">Bloc_EstTraversable</a></div><div class="ttdeci">uint8_t Bloc_EstTraversable(TypeBloc type)</div><div class="ttdoc">Indique si le bloc est traversable.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

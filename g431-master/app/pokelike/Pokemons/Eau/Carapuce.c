@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Carapuce.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -12,24 +12,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Carapuce = 16;
-
-/**
- * @brief liste des attaques
- */
-void Carapuce_Liste_Attaque(){
-	struct Attaque Charge;
-	Charge.ATK=35;
-	Charge.NIV=0;
-	struct Attaque Mimi_queue;
-	Mimi_queue.ATK=0;
-	Mimi_queue.NIV=0;
-	struct Attaque Ecume;
-	Ecume.ATK=20;
-	Ecume.NIV=8;
-	struct Attaque Pistolet_a_O;
-	Pistolet_a_O.ATK=40;
-	Pistolet_a_O.NIV=15;
-}
 
 uint16_t carapuce_map[] = {
 		// 'Sprite_0007_RB', 56x56px

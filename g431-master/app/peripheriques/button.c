@@ -1,8 +1,7 @@
-/*
- * button.c
- *
- *  Created on: Feb 12, 2024
- *      Author: Nirgal
+/**
+ * 	@file: button.c
+ *  @date: Feb 12, 2024
+ *  @author: Nirgal
  */
 #include <peripheriques/button.h>
 #include "stm32g4xx_hal.h"

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu:  Fichier source de app/pokelike/carte.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_5b8666b3d165df83f84f4489db184739.html">pokelike</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">carte.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="carte_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="carte_8h.html">carte.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tileset_8h.html">tileset.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;tft_ili9341/stm32g4_ili9341.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;tft_ili9341/stm32g4_fonts.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Pointeur vers la carte active</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="carte_8c.html#afac498853ea535710d7952197fcfbf56">   14</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> uint16_t (*<a class="code" href="carte_8c.html#afac498853ea535710d7952197fcfbf56">carte_actuelle</a>)[<a class="code" href="carte_8h.html#a150ec8de7c556153959587b69f10d6fe">CARTE_LARGEUR</a>];</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="carte_8c.html#ae23b595bcb108be4bb1fa42a979bf497">   15</a></span>&#160;<span class="keyword">static</span> <a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52">MapID_t</a> <a class="code" href="carte_8c.html#ae23b595bcb108be4bb1fa42a979bf497">currentMapID</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* === DEFINITION DU MONDE === */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="carte_8c.html#ac29dc388b0b0d83d160e55a0a2f1cbe5">   18</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> uint16_t <a class="code" href="carte_8c.html#ac29dc388b0b0d83d160e55a0a2f1cbe5">monde</a>[<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a183e25114b6474e32eafd7b6a50881e6">MAP_COUNT</a>][<a class="code" href="carte_8h.html#a15ef5c99bda2d2c13b1711529e40a75a">CARTE_HAUTEUR</a>][<a class="code" href="carte_8h.html#a150ec8de7c556153959587b69f10d6fe">CARTE_LARGEUR</a>] =</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    [<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc">MAP_CENTRE</a>] = {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0}, <span class="comment">// Sortie NORD (x=9,10)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {0,11,11,11,11,11,11,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {0,11,11,11,11,11,11,1,1,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {0,11,11,11,11,11,11,1,1,2,2,0,0,5,6,7,0,0,0,0},</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {0,1,1,1,1,1,1,1,1,2,2,0,0,8,9,8,0,0,0,0},</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {2,2,2,2,2,2,2,2,2,2,2,0,0,10,10,10,0,0,0,0}, <span class="comment">// Sortie OUEST (y=5)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2}, <span class="comment">// Sortie EST (y=6)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,0},</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {0,1,1,1,1,1,1,1,1,2,2,1,1,1,1,3,1,1,1,0},</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,5,6,6,6,6,7,0},</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,8,9,8,8,9,8,0},</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0},</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},<span class="comment">// Sortie SUD (x=9,10)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    },</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    [<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52aa80face044e23f5a4e6b4dab174a1b7e">MAP_NORD</a>] = {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="comment">// Exemple pour une pièce 6x5 centrée</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="comment">// 13 = Mur, 10 = Sol, 0 = Herbe (extérieur)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {0, 0, 0, 0, 13, 13, 13, 13, 13, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0, 0}, <span class="comment">// Haut de maison</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {0, 0, 0, 0, 13, 12, 12, 12, 12, 16, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0}, <span class="comment">// Intérieur</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {0, 0, 0, 0, 13, 18, 12, 12, 12, 17, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0}, <span class="comment">// Intérieur</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {0, 0, 0, 0, 13, 12, 12, 14, 12, 19, 20, 12, 0, 0, 0, 0, 0, 0, 0, 0}, <span class="comment">// Intérieur</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            {0, 0, 0, 0, 13, 12, 12, 15, 12, 20, 20, 12, 0, 0, 0, 0, 0, 0, 0, 0}, <span class="comment">// Bas + Porte (0)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            {0, 0, 0, 0, 13, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0},<span class="comment">// Entrée vers CENTRE</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    },</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    [<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a164aa58357e6cb8c76154c224808838e">MAP_SUD</a>] = {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  [0] = {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0}, <span class="comment">// Entrée vers CENTRE</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,11,11,11,0,0,0,0},</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,11,11,11,0,0,0,0},</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0},</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    },</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    [<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a31e0c6fea954af8c7a6d41bda145df8c">MAP_OUEST</a>] = {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        [5] = {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}, <span class="comment">// Entrée vers CENTRE (y=5)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    },</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    [<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52affdbb46e3cb59b1083711130a6a7b6d3">MAP_EST</a>] = {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        [6] = {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}, <span class="comment">// Entrée vers CENTRE (y=6)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="carte_8h.html#ae48026b7da788f20875020285632d6c3">   80</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="carte_8c.html#ae48026b7da788f20875020285632d6c3">Carte_Init</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="carte_8c.html#ad729dce7f2e23a00176cf3ea45a44b5b">Carte_Load</a>(<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc">MAP_CENTRE</a>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="carte_8h.html#ad729dce7f2e23a00176cf3ea45a44b5b">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="carte_8c.html#ad729dce7f2e23a00176cf3ea45a44b5b">Carte_Load</a>(<a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52">MapID_t</a> mapID) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(mapID &lt; <a class="code" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a183e25114b6474e32eafd7b6a50881e6">MAP_COUNT</a>) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="carte_8c.html#ae23b595bcb108be4bb1fa42a979bf497">currentMapID</a> = mapID;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="carte_8c.html#afac498853ea535710d7952197fcfbf56">carte_actuelle</a> = <a class="code" href="carte_8c.html#ac29dc388b0b0d83d160e55a0a2f1cbe5">monde</a>[mapID];</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="carte_8h.html#aeeb1431265a7ba9b408d1cd52aa5a5fc">  102</a></span>&#160;uint16_t <a class="code" href="carte_8c.html#aeeb1431265a7ba9b408d1cd52aa5a5fc">Carte_GetBloc</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span>(x &lt; 0 || x &gt;= <a class="code" href="carte_8h.html#a150ec8de7c556153959587b69f10d6fe">CARTE_LARGEUR</a> || y &lt; 0 || y &gt;= <a class="code" href="carte_8h.html#a15ef5c99bda2d2c13b1711529e40a75a">CARTE_HAUTEUR</a>)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> 99; <span class="comment">// Code pour &quot;Changement de map requis&quot;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="carte_8c.html#afac498853ea535710d7952197fcfbf56">carte_actuelle</a>[y][x];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="carte_8h.html#a6212041308c344e485500f96fea6f4f2">  115</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="carte_8c.html#a6212041308c344e485500f96fea6f4f2">draw_tile</a>(uint16_t tileIndex, <span class="keywordtype">int</span> screenX, <span class="keywordtype">int</span> screenY) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">const</span> uint16_t* tile = <a class="code" href="tileset_8c.html#a48d2ef428640c9b18baf4c09144cca3c">Tileset_GetTile</a>(tileIndex);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>; y++) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>; x++) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            uint16_t color = tile[y * <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a> + x];</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span>(color != 0x0000) ILI9341_DrawPixel(screenX + x, screenY + y, color);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="carte_8h.html#a468fd32aa852bf32a1120748f427d0e9">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="carte_8c.html#a468fd32aa852bf32a1120748f427d0e9">Carte_Afficher</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; <a class="code" href="carte_8h.html#a15ef5c99bda2d2c13b1711529e40a75a">CARTE_HAUTEUR</a>; y++) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; <a class="code" href="carte_8h.html#a150ec8de7c556153959587b69f10d6fe">CARTE_LARGEUR</a>; x++) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            uint16_t currentTile = <a class="code" href="carte_8c.html#afac498853ea535710d7952197fcfbf56">carte_actuelle</a>[y][x];</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="comment">// Fond herbe (0) pour les maisons (5+) ou arbres (3)</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">if</span>(currentTile &gt;= 3) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <a class="code" href="carte_8c.html#a6212041308c344e485500f96fea6f4f2">draw_tile</a>(0, x * <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>, y * <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <a class="code" href="carte_8c.html#a6212041308c344e485500f96fea6f4f2">draw_tile</a>(currentTile, x * <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>, y * <a class="code" href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52a31e0c6fea954af8c7a6d41bda145df8c"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a31e0c6fea954af8c7a6d41bda145df8c">MAP_OUEST</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00025">carte.h:25</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52">MapID_t</a></div><div class="ttdeci">MapID_t</div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00020">carte.h:20</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52aa80face044e23f5a4e6b4dab174a1b7e"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52aa80face044e23f5a4e6b4dab174a1b7e">MAP_NORD</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00022">carte.h:22</a></div></div>
+<div class="ttc" id="acarte_8c_html_aeeb1431265a7ba9b408d1cd52aa5a5fc"><div class="ttname"><a href="carte_8c.html#aeeb1431265a7ba9b408d1cd52aa5a5fc">Carte_GetBloc</a></div><div class="ttdeci">uint16_t Carte_GetBloc(int x, int y)</div><div class="ttdoc">Retourne le type de bloc à une position.</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00102">carte.c:102</a></div></div>
+<div class="ttc" id="atileset_8c_html_a48d2ef428640c9b18baf4c09144cca3c"><div class="ttname"><a href="tileset_8c.html#a48d2ef428640c9b18baf4c09144cca3c">Tileset_GetTile</a></div><div class="ttdeci">const uint16_t * Tileset_GetTile(uint16_t index)</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00468">tileset.c:468</a></div></div>
+<div class="ttc" id="acarte_8h_html_a15ef5c99bda2d2c13b1711529e40a75a"><div class="ttname"><a href="carte_8h.html#a15ef5c99bda2d2c13b1711529e40a75a">CARTE_HAUTEUR</a></div><div class="ttdeci">#define CARTE_HAUTEUR</div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00016">carte.h:16</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52affdbb46e3cb59b1083711130a6a7b6d3"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52affdbb46e3cb59b1083711130a6a7b6d3">MAP_EST</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00024">carte.h:24</a></div></div>
+<div class="ttc" id="acarte_8h_html_a62ecd70800687eb2d625af180c4210d7"><div class="ttname"><a href="carte_8h.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a></div><div class="ttdeci">#define TILE_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00013">carte.h:13</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc">MAP_CENTRE</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00021">carte.h:21</a></div></div>
+<div class="ttc" id="acarte_8c_html_ac29dc388b0b0d83d160e55a0a2f1cbe5"><div class="ttname"><a href="carte_8c.html#ac29dc388b0b0d83d160e55a0a2f1cbe5">monde</a></div><div class="ttdeci">static const uint16_t monde[MAP_COUNT][CARTE_HAUTEUR][CARTE_LARGEUR]</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00018">carte.c:18</a></div></div>
+<div class="ttc" id="acarte_8h_html"><div class="ttname"><a href="carte_8h.html">carte.h</a></div></div>
+<div class="ttc" id="atileset_8h_html"><div class="ttname"><a href="tileset_8h.html">tileset.h</a></div></div>
+<div class="ttc" id="acarte_8c_html_ad729dce7f2e23a00176cf3ea45a44b5b"><div class="ttname"><a href="carte_8c.html#ad729dce7f2e23a00176cf3ea45a44b5b">Carte_Load</a></div><div class="ttdeci">void Carte_Load(MapID_t mapID)</div><div class="ttdoc">Charge une carte en fonction de l'identifiant donné</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00088">carte.c:88</a></div></div>
+<div class="ttc" id="acarte_8c_html_afac498853ea535710d7952197fcfbf56"><div class="ttname"><a href="carte_8c.html#afac498853ea535710d7952197fcfbf56">carte_actuelle</a></div><div class="ttdeci">static const uint16_t(* carte_actuelle)[CARTE_LARGEUR]</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00014">carte.c:14</a></div></div>
+<div class="ttc" id="acarte_8c_html_ae23b595bcb108be4bb1fa42a979bf497"><div class="ttname"><a href="carte_8c.html#ae23b595bcb108be4bb1fa42a979bf497">currentMapID</a></div><div class="ttdeci">static MapID_t currentMapID</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00015">carte.c:15</a></div></div>
+<div class="ttc" id="acarte_8c_html_a6212041308c344e485500f96fea6f4f2"><div class="ttname"><a href="carte_8c.html#a6212041308c344e485500f96fea6f4f2">draw_tile</a></div><div class="ttdeci">void draw_tile(uint16_t tileIndex, int screenX, int screenY)</div><div class="ttdoc">Dessine une partie de carte donné</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00115">carte.c:115</a></div></div>
+<div class="ttc" id="acarte_8c_html_ae48026b7da788f20875020285632d6c3"><div class="ttname"><a href="carte_8c.html#ae48026b7da788f20875020285632d6c3">Carte_Init</a></div><div class="ttdeci">void Carte_Init(void)</div><div class="ttdoc">Initialisation de la carte.</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00080">carte.c:80</a></div></div>
+<div class="ttc" id="acarte_8h_html_a150ec8de7c556153959587b69f10d6fe"><div class="ttname"><a href="carte_8h.html#a150ec8de7c556153959587b69f10d6fe">CARTE_LARGEUR</a></div><div class="ttdeci">#define CARTE_LARGEUR</div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00015">carte.h:15</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52a183e25114b6474e32eafd7b6a50881e6"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a183e25114b6474e32eafd7b6a50881e6">MAP_COUNT</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00026">carte.h:26</a></div></div>
+<div class="ttc" id="acarte_8c_html_a468fd32aa852bf32a1120748f427d0e9"><div class="ttname"><a href="carte_8c.html#a468fd32aa852bf32a1120748f427d0e9">Carte_Afficher</a></div><div class="ttdeci">void Carte_Afficher(void)</div><div class="ttdoc">Afficher la carte complete.</div><div class="ttdef"><b>Definition:</b> <a href="carte_8c_source.html#l00128">carte.c:128</a></div></div>
+<div class="ttc" id="acarte_8h_html_ae2cf08121ad06e1aa6e35c65256e1d52a164aa58357e6cb8c76154c224808838e"><div class="ttname"><a href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52a164aa58357e6cb8c76154c224808838e">MAP_SUD</a></div><div class="ttdef"><b>Definition:</b> <a href="carte_8h_source.html#l00023">carte.h:23</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

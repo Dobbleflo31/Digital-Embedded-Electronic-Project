@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Herbizarre.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,18 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Herbizarre = 32;
-
-/**
- * @brief liste des attaques
- */
-void Herbizarre_Liste_Attaque(){
-	struct Attaque Poudre_Toxic;
-	Poudre_Toxic.ATK=0;
-	Poudre_Toxic.NIV=20;
-	struct Attaque Tranch_Herbe;
-	Tranch_Herbe.ATK=55;
-	Tranch_Herbe.NIV=27;
-}
 
 uint16_t herbizzare_map[] = {
 		// 'Sprite_0002_RB', 56x56px

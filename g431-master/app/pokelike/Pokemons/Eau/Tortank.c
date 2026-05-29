@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Tortank.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -10,18 +10,6 @@
 
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
-
-/**
- * @brief liste des attaques
- */
-void Tortank_Liste_Attaque(void){
-	struct Attaque Coud_Krane;
-	Coud_Krane.ATK=100;
-	Coud_Krane.NIV=35;
-	struct Attaque Hydrocanon;
-	Hydrocanon.ATK=120;
-	Hydrocanon.NIV=42;
-}
 
 uint16_t tortank_map[] = {
 		// 'Sprite_0009_RB', 56x56px

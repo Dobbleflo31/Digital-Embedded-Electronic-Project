@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu:  Fichier source de app/pokelike/tileset.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_5b8666b3d165df83f84f4489db184739.html">pokelike</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">tileset.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="tileset_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef TILESET_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define TILESET_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/* Taille d&#39;une tile */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="tileset_8h.html#a62ecd70800687eb2d625af180c4210d7">   13</a></span>&#160;<span class="preprocessor">#define TILE_SIZE 16</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/* Tiles individuelles */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a05625a654bedabdac19e21f43b609019">tile_herbe</a>[256];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#ad6119cce8e05b3e555ee8a4eb0943dc6">tile_eau</a>[256];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#acda7e2112fde6861f9b68d793f10f2db">tile_route</a>[256];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a6e2868585c773ad91758561c20c70ec2">tile_arbre</a>[256];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#abe6fdddcbe50a059cb594b878850d32c">tile_etang</a>[256];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a6e661579bcfaadb259a3fef841a4a56d">tile_sommet_toit</a>[256];</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#af942365531c1a2fe1ca7fcc24339c5bc">tile_porte_milieu</a>[256];</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a3fa4588607bda080eaae777d40df693d">tile_murs_fenetre</a>[256];</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#ab3112b125848abf56373d9a194e983b9">tile_toit_gauche</a>[256];</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a0a75dcca11c58f35c1b2a3604edbc061">tile_toit_droite</a>[256];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#a4bc0c632bf1342b68b088a1e79b07159">tile_fondation</a>[256];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint16_t <a class="code" href="tileset_8h.html#aa08c38a6d76c652b8dd77261cbc7c2b0">tile_coin_fondation</a>[256];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/* Fonction utilitaire */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">const</span> uint16_t* <a class="code" href="tileset_8h.html#a48d2ef428640c9b18baf4c09144cca3c">Tileset_GetTile</a>(uint16_t index);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* POKELIKE_TILESET_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="atileset_8h_html_a0a75dcca11c58f35c1b2a3604edbc061"><div class="ttname"><a href="tileset_8h.html#a0a75dcca11c58f35c1b2a3604edbc061">tile_toit_droite</a></div><div class="ttdeci">const uint16_t tile_toit_droite[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00207">tileset.c:207</a></div></div>
+<div class="ttc" id="atileset_8h_html_abe6fdddcbe50a059cb594b878850d32c"><div class="ttname"><a href="tileset_8h.html#abe6fdddcbe50a059cb594b878850d32c">tile_etang</a></div><div class="ttdeci">const uint16_t tile_etang[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00462">tileset.c:462</a></div></div>
+<div class="ttc" id="atileset_8h_html_aa08c38a6d76c652b8dd77261cbc7c2b0"><div class="ttname"><a href="tileset_8h.html#aa08c38a6d76c652b8dd77261cbc7c2b0">tile_coin_fondation</a></div><div class="ttdeci">const uint16_t tile_coin_fondation[256]</div></div>
+<div class="ttc" id="atileset_8h_html_af942365531c1a2fe1ca7fcc24339c5bc"><div class="ttname"><a href="tileset_8h.html#af942365531c1a2fe1ca7fcc24339c5bc">tile_porte_milieu</a></div><div class="ttdeci">const uint16_t tile_porte_milieu[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00146">tileset.c:146</a></div></div>
+<div class="ttc" id="atileset_8h_html_a05625a654bedabdac19e21f43b609019"><div class="ttname"><a href="tileset_8h.html#a05625a654bedabdac19e21f43b609019">tile_herbe</a></div><div class="ttdeci">const uint16_t tile_herbe[256]</div><div class="ttdoc">Constante pour la generation de plaque de 16x16 pixels.</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00019">tileset.c:19</a></div></div>
+<div class="ttc" id="atileset_8h_html_ad6119cce8e05b3e555ee8a4eb0943dc6"><div class="ttname"><a href="tileset_8h.html#ad6119cce8e05b3e555ee8a4eb0943dc6">tile_eau</a></div><div class="ttdeci">const uint16_t tile_eau[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00059">tileset.c:59</a></div></div>
+<div class="ttc" id="atileset_8h_html_a4bc0c632bf1342b68b088a1e79b07159"><div class="ttname"><a href="tileset_8h.html#a4bc0c632bf1342b68b088a1e79b07159">tile_fondation</a></div><div class="ttdeci">const uint16_t tile_fondation[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00227">tileset.c:227</a></div></div>
+<div class="ttc" id="atileset_8h_html_a6e2868585c773ad91758561c20c70ec2"><div class="ttname"><a href="tileset_8h.html#a6e2868585c773ad91758561c20c70ec2">tile_arbre</a></div><div class="ttdeci">const uint16_t tile_arbre[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00101">tileset.c:101</a></div></div>
+<div class="ttc" id="atileset_8h_html_acda7e2112fde6861f9b68d793f10f2db"><div class="ttname"><a href="tileset_8h.html#acda7e2112fde6861f9b68d793f10f2db">tile_route</a></div><div class="ttdeci">const uint16_t tile_route[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00080">tileset.c:80</a></div></div>
+<div class="ttc" id="atileset_8h_html_a6e661579bcfaadb259a3fef841a4a56d"><div class="ttname"><a href="tileset_8h.html#a6e661579bcfaadb259a3fef841a4a56d">tile_sommet_toit</a></div><div class="ttdeci">const uint16_t tile_sommet_toit[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00125">tileset.c:125</a></div></div>
+<div class="ttc" id="atileset_8h_html_ab3112b125848abf56373d9a194e983b9"><div class="ttname"><a href="tileset_8h.html#ab3112b125848abf56373d9a194e983b9">tile_toit_gauche</a></div><div class="ttdeci">const uint16_t tile_toit_gauche[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00187">tileset.c:187</a></div></div>
+<div class="ttc" id="atileset_8h_html_a3fa4588607bda080eaae777d40df693d"><div class="ttname"><a href="tileset_8h.html#a3fa4588607bda080eaae777d40df693d">tile_murs_fenetre</a></div><div class="ttdeci">const uint16_t tile_murs_fenetre[256]</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00167">tileset.c:167</a></div></div>
+<div class="ttc" id="atileset_8h_html_a48d2ef428640c9b18baf4c09144cca3c"><div class="ttname"><a href="tileset_8h.html#a48d2ef428640c9b18baf4c09144cca3c">Tileset_GetTile</a></div><div class="ttdeci">const uint16_t * Tileset_GetTile(uint16_t index)</div><div class="ttdef"><b>Definition:</b> <a href="tileset_8c_source.html#l00468">tileset.c:468</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

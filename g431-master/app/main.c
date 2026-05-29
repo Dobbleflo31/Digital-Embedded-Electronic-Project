@@ -57,7 +57,7 @@ int main(void)
 	}*/
 
 
-	/* menu */
+	/** menu */
 	int count = 1;
 
 	ILI9341_Fill(ILI9341_COLOR_WHITE);

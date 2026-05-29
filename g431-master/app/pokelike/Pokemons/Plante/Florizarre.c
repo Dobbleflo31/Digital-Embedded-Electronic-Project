@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Florizarre.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -11,21 +11,6 @@
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
 
-/**
- * @brief liste des attaques
- */
-void Florizarre_Liste_Attaque(){
-	struct Attaque Croissance;
-	Croissance.ATK=0;
-	Croissance.NIV=34;
-	struct Attaque Poudre_Dodo;
-	Poudre_Dodo.ATK=0;
-	Poudre_Dodo.NIV=41;
-	struct Attaque Lance_Soleil;
-	Lance_Soleil.ATK=120;
-	Lance_Soleil.NIV=48;
-
-}
 uint16_t florizarre_map[] = {
 		// 'Sprite_0003_RB', 56x56px
 		0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,

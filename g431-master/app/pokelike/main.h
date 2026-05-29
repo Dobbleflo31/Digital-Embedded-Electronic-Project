@@ -1,4 +1,4 @@
-/*
+/**
  *  @file: main.h
  *	@date: 27 mars 2026
  *  @author: Maxim, Florian

@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Reptincel.h
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,5 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 extern uint16_t reptincel_map[];
+void Reptincel_Liste_Attaque(void);
 
 #endif /* POKELIKE_POKEMONS_FEU_REPTINCEL_H_ */

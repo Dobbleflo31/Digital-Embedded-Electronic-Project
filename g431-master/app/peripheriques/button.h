@@ -1,8 +1,7 @@
-/*
- * button.h
- *
- *  Created on: Feb 12, 2024
- *      Author: Nirgal
+/**
+ * 	@file: button.h
+ *	@date: Feb 12, 2024
+ *  @author: Nirgal
  */
 
 #ifndef BUTTON_H_

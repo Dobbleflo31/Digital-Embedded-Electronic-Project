@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Bulbizarre.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,25 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Bulbizarre = 16;
-
-
-/**
- * @brief liste des attaques
- */
-void Bulbizarre_Liste_Attaque(){
-	struct Attaque Charge;
-	Charge.ATK=35;
-	Charge.NIV=0;
-	struct Attaque Rugissement;
-	Rugissement.ATK=0;
-	Rugissement.NIV=0;
-	struct Attaque Vampigraine;
-	Vampigraine.ATK=10;
-	Vampigraine.NIV=7;
-	struct Attaque Fouets_Lianes;
-	Fouets_Lianes.ATK=35;
-	Fouets_Lianes.NIV=13;
-}
 
 uint16_t bulbizarre_map[] = {
 		// 'Sprite_0001_RB', 56x56px

@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Reptincel.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -12,18 +12,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Reptincel = 36;
-
-/**
- * @brief liste des attaques
- */
-void Reptincel_Liste_Attaque(){
-	struct Attaque Frenesie;
-	Frenesie.ATK=20;
-	Frenesie.NIV=22;
-	struct Attaque Tranche;
-	Tranche.ATK=70;
-	Tranche.NIV=30;
-}
 
 uint16_t reptincel_map[] = {
 		// 'Sprite_0005_RB', 56x56px

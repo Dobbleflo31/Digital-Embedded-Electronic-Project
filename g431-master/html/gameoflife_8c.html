@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu: Référence du fichier app/gameoflife/gameoflife.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_17282c15f4db32b49261e21fbb8a579a.html">gameoflife</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier gameoflife.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="button_8h_source.html">peripheriques/button.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="display_8h_source.html">peripheriques/display.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="gameoflife_8h_source.html">gameoflife.h</a>&quot;</code><br />
+<code>#include &quot;stm32g4xx_hal.h&quot;</code><br />
+<code>#include &quot;stm32g4_systick.h&quot;</code><br />
+<code>#include &quot;TFT_ili9341/stm32g4_xpt2046.h&quot;</code><br />
+</div>
+<p><a href="gameoflife_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3b13da6bacb29f920f319fdcdff882e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a3b13da6bacb29f920f319fdcdff882e8">NB_LEVELS</a>&#160;&#160;&#160;11</td></tr>
+<tr class="separator:a3b13da6bacb29f920f319fdcdff882e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe2b17cd138e03d5af82f04e9a5737a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a3fe2b17cd138e03d5af82f04e9a5737a">GENERATION_PERIOD_MS</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a3fe2b17cd138e03d5af82f04e9a5737a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a7f2f20e289397546fac2ae282a587a91"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91">pattern_e</a> { <br />
+&#160;&#160;<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a41cad930ecad7a13e386de20c68f2dfb">PATTERN_BOX</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a7b39722a0b428f71fc5fe793e93c1446">PATTERN_BEEHIVE</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a74ac84442216c97bf97d13c8f9aba6e5">PATTERN_TOAD</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a8727e8f7183878aa949a2c62a9756704">PATTERN_SHIP</a>, 
+<br />
+&#160;&#160;<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91aabe63b56483e80428ef60ac4f1e2c64e">PATTERN_GLIDER</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91aab184ac3c57a52c4e71940998b50d573">PATTERN_QUEEN_BEE_SHUTTLE</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91ae1b11f038335eb2862f373ae9133ebf6">PATTERN_PULSAR</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91ae822c7e466ecb99311d4c0a170926051">PATTERN_BLINKER</a>, 
+<br />
+&#160;&#160;<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91ad5daa21c0a34e2fb83ff0303bc191dc6">PATTERN_PENTADECATHLON</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91ad89670403fc308a4a1f004986b2ba26c">PATTERN_GLIDER_GUN</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a669bf8c2d7c2619fb2a0321251355fad">PATTERN_LIGHT_WEIGHT_SPACESHIP</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91acfe937cdd99182a81c339bf6085fea54">PATTERN_MIDDLE_WEIGHT_SPACESHIP</a>, 
+<br />
+&#160;&#160;<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a8c1d386f7b19a9125d4656f9d087c40b">PATTERN_HEAVY_WEIGHT_SPACESHIP</a>, 
+<a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91a07d5c73b43a0b1c588663a7938fca38d">PATTERN_NB</a>
+<br />
+ }</td></tr>
+<tr class="separator:a7f2f20e289397546fac2ae282a587a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7c5752b7d2db5913503c07c5be4e633e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a7c5752b7d2db5913503c07c5be4e633e">GAMEOFLIFE_process_ms</a> (void)</td></tr>
+<tr class="separator:a7c5752b7d2db5913503c07c5be4e633e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af64373ed7c3684a620991a76c54b6320"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#af64373ed7c3684a620991a76c54b6320">GAMEOFLIFE_next_generation</a> (<a class="el" href="structgrid__t.html">grid_t</a> *grid_prev, <a class="el" href="structgrid__t.html">grid_t</a> *grid_next)</td></tr>
+<tr class="separator:af64373ed7c3684a620991a76c54b6320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c26661ecc22d30115ea2429a83bff68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a8c26661ecc22d30115ea2429a83bff68">GAMEOFLIFE_create_pattern</a> (<a class="el" href="structgrid__t.html">grid_t</a> *grid, uint16_t x, uint16_t y, <a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91">pattern_e</a> pattern)</td></tr>
+<tr class="separator:a8c26661ecc22d30115ea2429a83bff68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc07a4708eeef9b70d59ac2eb9fa010"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a4dc07a4708eeef9b70d59ac2eb9fa010">GAMEOFLIFE_create_cell_XPT2046</a> (<a class="el" href="structgrid__t.html">grid_t</a> *grid_next)</td></tr>
+<tr class="separator:a4dc07a4708eeef9b70d59ac2eb9fa010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b98486263e32fc6491ff576851174d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a8b98486263e32fc6491ff576851174d0">XPT2046_init</a> (void)</td></tr>
+<tr class="separator:a8b98486263e32fc6491ff576851174d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dbd37c309fa40113ffb0c473a8954c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a8dbd37c309fa40113ffb0c473a8954c3">GAMEOFLIFE_init</a> (void)</td></tr>
+<tr class="separator:a8dbd37c309fa40113ffb0c473a8954c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441ddb375941a9008589ce0b863acb9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a441ddb375941a9008589ce0b863acb9c">GAMEOFLIFE_process_main</a> (void)</td></tr>
+<tr class="separator:a441ddb375941a9008589ce0b863acb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a65605e66828ff70c1a740ca49c919734"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a65605e66828ff70c1a740ca49c919734">flag_generation</a></td></tr>
+<tr class="separator:a65605e66828ff70c1a740ca49c919734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab090ad7eb6b25c2100d8e2328a7e5c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structgrid__t.html">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#aab090ad7eb6b25c2100d8e2328a7e5c7">grid0</a></td></tr>
+<tr class="separator:aab090ad7eb6b25c2100d8e2328a7e5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409de635dee77e217339ebc9b3f2433a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structgrid__t.html">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gameoflife_8c.html#a409de635dee77e217339ebc9b3f2433a">grid1</a></td></tr>
+<tr class="separator:a409de635dee77e217339ebc9b3f2433a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a3fe2b17cd138e03d5af82f04e9a5737a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe2b17cd138e03d5af82f04e9a5737a">&#9670;&nbsp;</a></span>GENERATION_PERIOD_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GENERATION_PERIOD_MS&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00017">17</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+</div>
+</div>
+<a id="a3b13da6bacb29f920f319fdcdff882e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b13da6bacb29f920f319fdcdff882e8">&#9670;&nbsp;</a></span>NB_LEVELS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_LEVELS&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00016">16</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a7f2f20e289397546fac2ae282a587a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2f20e289397546fac2ae282a587a91">&#9670;&nbsp;</a></span>pattern_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91">pattern_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a41cad930ecad7a13e386de20c68f2dfb"></a>PATTERN_BOX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a7b39722a0b428f71fc5fe793e93c1446"></a>PATTERN_BEEHIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a74ac84442216c97bf97d13c8f9aba6e5"></a>PATTERN_TOAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a8727e8f7183878aa949a2c62a9756704"></a>PATTERN_SHIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91aabe63b56483e80428ef60ac4f1e2c64e"></a>PATTERN_GLIDER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91aab184ac3c57a52c4e71940998b50d573"></a>PATTERN_QUEEN_BEE_SHUTTLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91ae1b11f038335eb2862f373ae9133ebf6"></a>PATTERN_PULSAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91ae822c7e466ecb99311d4c0a170926051"></a>PATTERN_BLINKER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91ad5daa21c0a34e2fb83ff0303bc191dc6"></a>PATTERN_PENTADECATHLON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91ad89670403fc308a4a1f004986b2ba26c"></a>PATTERN_GLIDER_GUN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a669bf8c2d7c2619fb2a0321251355fad"></a>PATTERN_LIGHT_WEIGHT_SPACESHIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91acfe937cdd99182a81c339bf6085fea54"></a>PATTERN_MIDDLE_WEIGHT_SPACESHIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a8c1d386f7b19a9125d4656f9d087c40b"></a>PATTERN_HEAVY_WEIGHT_SPACESHIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7f2f20e289397546fac2ae282a587a91a07d5c73b43a0b1c588663a7938fca38d"></a>PATTERN_NB&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00026">26</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a4dc07a4708eeef9b70d59ac2eb9fa010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc07a4708eeef9b70d59ac2eb9fa010">&#9670;&nbsp;</a></span>GAMEOFLIFE_create_cell_XPT2046()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GAMEOFLIFE_create_cell_XPT2046 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgrid__t.html">grid_t</a> *&#160;</td>
+          <td class="paramname"><em>grid_next</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00136">136</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gameoflife_8h_source.html#l00023">CELL_ALIVE</a>, <a class="el" href="gameoflife_8h_source.html#l00013">CELL_SIZE</a>, <a class="el" href="gameoflife_8h_source.html#l00027">grid_t::cells</a>, et <a class="el" href="gameoflife_8h_source.html#l00012">SCREEN_HEIGHT</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00076">GAMEOFLIFE_process_main()</a>.</p>
+
+</div>
+</div>
+<a id="a8c26661ecc22d30115ea2429a83bff68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c26661ecc22d30115ea2429a83bff68">&#9670;&nbsp;</a></span>GAMEOFLIFE_create_pattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GAMEOFLIFE_create_pattern </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgrid__t.html">grid_t</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="gameoflife_8c.html#a7f2f20e289397546fac2ae282a587a91">pattern_e</a>&#160;</td>
+          <td class="paramname"><em>pattern</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00148">148</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gameoflife_8h_source.html#l00023">CELL_ALIVE</a>, <a class="el" href="gameoflife_8h_source.html#l00027">grid_t::cells</a>, <a class="el" href="gameoflife_8c_source.html#l00029">PATTERN_BEEHIVE</a>, <a class="el" href="gameoflife_8c_source.html#l00035">PATTERN_BLINKER</a>, <a class="el" href="gameoflife_8c_source.html#l00028">PATTERN_BOX</a>, <a class="el" href="gameoflife_8c_source.html#l00032">PATTERN_GLIDER</a>, <a class="el" href="gameoflife_8c_source.html#l00037">PATTERN_GLIDER_GUN</a>, <a class="el" href="gameoflife_8c_source.html#l00040">PATTERN_HEAVY_WEIGHT_SPACESHIP</a>, <a class="el" href="gameoflife_8c_source.html#l00038">PATTERN_LIGHT_WEIGHT_SPACESHIP</a>, <a class="el" href="gameoflife_8c_source.html#l00039">PATTERN_MIDDLE_WEIGHT_SPACESHIP</a>, <a class="el" href="gameoflife_8c_source.html#l00036">PATTERN_PENTADECATHLON</a>, <a class="el" href="gameoflife_8c_source.html#l00034">PATTERN_PULSAR</a>, <a class="el" href="gameoflife_8c_source.html#l00033">PATTERN_QUEEN_BEE_SHUTTLE</a>, <a class="el" href="gameoflife_8c_source.html#l00031">PATTERN_SHIP</a>, et <a class="el" href="gameoflife_8c_source.html#l00030">PATTERN_TOAD</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00055">GAMEOFLIFE_init()</a>.</p>
+
+</div>
+</div>
+<a id="a8dbd37c309fa40113ffb0c473a8954c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dbd37c309fa40113ffb0c473a8954c3">&#9670;&nbsp;</a></span>GAMEOFLIFE_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GAMEOFLIFE_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00055">55</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gameoflife_8h_source.html#l00022">CELL_DEAD</a>, <a class="el" href="gameoflife_8h_source.html#l00027">grid_t::cells</a>, <a class="el" href="display_8c_source.html#l00016">DISPLAY_init()</a>, <a class="el" href="display_8c_source.html#l00027">DISPLAY_refresh()</a>, <a class="el" href="gameoflife_8c_source.html#l00148">GAMEOFLIFE_create_pattern()</a>, <a class="el" href="gameoflife_8c_source.html#l00098">GAMEOFLIFE_process_ms()</a>, <a class="el" href="gameoflife_8c_source.html#l00023">grid0</a>, <a class="el" href="gameoflife_8h_source.html#l00016">NB_COLUMN</a>, <a class="el" href="gameoflife_8h_source.html#l00017">NB_LINE</a>, <a class="el" href="gameoflife_8c_source.html#l00029">PATTERN_BEEHIVE</a>, <a class="el" href="gameoflife_8c_source.html#l00035">PATTERN_BLINKER</a>, <a class="el" href="gameoflife_8c_source.html#l00028">PATTERN_BOX</a>, et <a class="el" href="gameoflife_8c_source.html#l00030">PATTERN_TOAD</a>.</p>
+
+</div>
+</div>
+<a id="af64373ed7c3684a620991a76c54b6320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64373ed7c3684a620991a76c54b6320">&#9670;&nbsp;</a></span>GAMEOFLIFE_next_generation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GAMEOFLIFE_next_generation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structgrid__t.html">grid_t</a> *&#160;</td>
+          <td class="paramname"><em>grid_prev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgrid__t.html">grid_t</a> *&#160;</td>
+          <td class="paramname"><em>grid_next</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00109">109</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gameoflife_8h_source.html#l00023">CELL_ALIVE</a>, <a class="el" href="gameoflife_8h_source.html#l00022">CELL_DEAD</a>, <a class="el" href="gameoflife_8h_source.html#l00027">grid_t::cells</a>, <a class="el" href="gameoflife_8h_source.html#l00016">NB_COLUMN</a>, et <a class="el" href="gameoflife_8h_source.html#l00017">NB_LINE</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00076">GAMEOFLIFE_process_main()</a>.</p>
+
+</div>
+</div>
+<a id="a441ddb375941a9008589ce0b863acb9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a441ddb375941a9008589ce0b863acb9c">&#9670;&nbsp;</a></span>GAMEOFLIFE_process_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GAMEOFLIFE_process_main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00076">76</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="display_8c_source.html#l00027">DISPLAY_refresh()</a>, <a class="el" href="gameoflife_8c_source.html#l00021">flag_generation</a>, <a class="el" href="gameoflife_8c_source.html#l00136">GAMEOFLIFE_create_cell_XPT2046()</a>, <a class="el" href="gameoflife_8c_source.html#l00109">GAMEOFLIFE_next_generation()</a>, <a class="el" href="gameoflife_8c_source.html#l00023">grid0</a>, et <a class="el" href="gameoflife_8c_source.html#l00024">grid1</a>.</p>
+
+</div>
+</div>
+<a id="a7c5752b7d2db5913503c07c5be4e633e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5752b7d2db5913503c07c5be4e633e">&#9670;&nbsp;</a></span>GAMEOFLIFE_process_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GAMEOFLIFE_process_ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00098">98</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gameoflife_8c_source.html#l00021">flag_generation</a>, et <a class="el" href="gameoflife_8c_source.html#l00017">GENERATION_PERIOD_MS</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00055">GAMEOFLIFE_init()</a>.</p>
+
+</div>
+</div>
+<a id="a8b98486263e32fc6491ff576851174d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b98486263e32fc6491ff576851174d0">&#9670;&nbsp;</a></span>XPT2046_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XPT2046_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a65605e66828ff70c1a740ca49c919734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65605e66828ff70c1a740ca49c919734">&#9670;&nbsp;</a></span>flag_generation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool flag_generation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00021">21</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00076">GAMEOFLIFE_process_main()</a>, et <a class="el" href="gameoflife_8c_source.html#l00098">GAMEOFLIFE_process_ms()</a>.</p>
+
+</div>
+</div>
+<a id="aab090ad7eb6b25c2100d8e2328a7e5c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab090ad7eb6b25c2100d8e2328a7e5c7">&#9670;&nbsp;</a></span>grid0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgrid__t.html">grid_t</a> grid0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00023">23</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00055">GAMEOFLIFE_init()</a>, et <a class="el" href="gameoflife_8c_source.html#l00076">GAMEOFLIFE_process_main()</a>.</p>
+
+</div>
+</div>
+<a id="a409de635dee77e217339ebc9b3f2433a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409de635dee77e217339ebc9b3f2433a">&#9670;&nbsp;</a></span>grid1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgrid__t.html">grid_t</a> grid1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="gameoflife_8c_source.html#l00024">24</a> du fichier <a class="el" href="gameoflife_8c_source.html">gameoflife.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gameoflife_8c_source.html#l00076">GAMEOFLIFE_process_main()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

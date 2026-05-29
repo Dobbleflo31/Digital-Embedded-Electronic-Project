@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu: Référence du fichier app/pokelike/joueur.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_5b8666b3d165df83f84f4489db184739.html">pokelike</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier joueur.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="joueur_8h_source.html">joueur.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="carte_8h_source.html">carte.h</a>&quot;</code><br />
+<code>#include &quot;config.h&quot;</code><br />
+<code>#include &quot;tft_ili9341/stm32g4_ili9341.h&quot;</code><br />
+<code>#include &quot;stm32g4_gpio.h&quot;</code><br />
+<code>#include &quot;stm32g4_uart.h&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div>
+<p><a href="joueur_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abad9ad5ae94fd56569e71c156349030b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#abad9ad5ae94fd56569e71c156349030b">TAILLE_BLOC</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:abad9ad5ae94fd56569e71c156349030b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ad35a522b3b80752e4ed85b2e6f1f868d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#ad35a522b3b80752e4ed85b2e6f1f868d">Joueur_Init</a> (void)</td></tr>
+<tr class="memdesc:ad35a522b3b80752e4ed85b2e6f1f868d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du joueur.  <a href="joueur_8c.html#ad35a522b3b80752e4ed85b2e6f1f868d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad35a522b3b80752e4ed85b2e6f1f868d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79bfd4ba9e755b3cf4f4c3064901fb01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#a79bfd4ba9e755b3cf4f4c3064901fb01">Joueur_DessinerSprite</a> (int pixelX, int pixelY)</td></tr>
+<tr class="memdesc:a79bfd4ba9e755b3cf4f4c3064901fb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'image du joueur.  <a href="joueur_8c.html#a79bfd4ba9e755b3cf4f4c3064901fb01">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79bfd4ba9e755b3cf4f4c3064901fb01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386281c565bbb38eeb3200581585306a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#a386281c565bbb38eeb3200581585306a">Joueur_Afficher</a> (void)</td></tr>
+<tr class="memdesc:a386281c565bbb38eeb3200581585306a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le joueur.  <a href="joueur_8c.html#a386281c565bbb38eeb3200581585306a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a386281c565bbb38eeb3200581585306a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0cc47be2e3e6317a33958be28cf7bfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#ad0cc47be2e3e6317a33958be28cf7bfd">Joueur_Effacer</a> (void)</td></tr>
+<tr class="memdesc:ad0cc47be2e3e6317a33958be28cf7bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efface le joueur.  <a href="joueur_8c.html#ad0cc47be2e3e6317a33958be28cf7bfd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad0cc47be2e3e6317a33958be28cf7bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa26d12ec074718a1aa7c268f41a92b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#afa26d12ec074718a1aa7c268f41a92b7">Joueur_Update</a> (void)</td></tr>
+<tr class="memdesc:afa26d12ec074718a1aa7c268f41a92b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">met a jour la position du joueur en fonction de l'entrée de l'utilisateur  <a href="joueur_8c.html#afa26d12ec074718a1aa7c268f41a92b7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afa26d12ec074718a1aa7c268f41a92b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a478abf0cff7593e4d05d992716083a3c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#a478abf0cff7593e4d05d992716083a3c">joueurX</a> = 10</td></tr>
+<tr class="separator:a478abf0cff7593e4d05d992716083a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c9e74d0883eb83fe6a4263c3f3481e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#ac2c9e74d0883eb83fe6a4263c3f3481e">joueurY</a> = 10</td></tr>
+<tr class="separator:ac2c9e74d0883eb83fe6a4263c3f3481e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ccd9cc7034533864136fdf2d9022648"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#a9ccd9cc7034533864136fdf2d9022648">ancienX</a> = 10</td></tr>
+<tr class="separator:a9ccd9cc7034533864136fdf2d9022648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55e64d14c676decd19b54389b17f161"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#ad55e64d14c676decd19b54389b17f161">ancienY</a> = 10</td></tr>
+<tr class="separator:ad55e64d14c676decd19b54389b17f161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a051b6017866e1c4535d34f25a0d74019"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52">MapID_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html#a051b6017866e1c4535d34f25a0d74019">mapActuelle</a> = <a class="el" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc">MAP_CENTRE</a></td></tr>
+<tr class="separator:a051b6017866e1c4535d34f25a0d74019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section date"><dt>Date</dt><dd>: 1 avr. 2026 </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>: Florian </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="abad9ad5ae94fd56569e71c156349030b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad9ad5ae94fd56569e71c156349030b">&#9670;&nbsp;</a></span>TAILLE_BLOC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAILLE_BLOC&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00016">16</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a386281c565bbb38eeb3200581585306a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a386281c565bbb38eeb3200581585306a">&#9670;&nbsp;</a></span>Joueur_Afficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur_Afficher </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le joueur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00071">71</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="joueur_8c_source.html#l00054">Joueur_DessinerSprite()</a>, <a class="el" href="joueur_8c_source.html#l00019">joueurX</a>, <a class="el" href="joueur_8c_source.html#l00020">joueurY</a>, et <a class="el" href="joueur_8c_source.html#l00016">TAILLE_BLOC</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pokelike_2main_8c_source.html#l00020">main_POKELIKE()</a>.</p>
+
+</div>
+</div>
+<a id="a79bfd4ba9e755b3cf4f4c3064901fb01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bfd4ba9e755b3cf4f4c3064901fb01">&#9670;&nbsp;</a></span>Joueur_DessinerSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur_DessinerSprite </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pixelX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pixelY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine l'image du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixelX</td><td>coordonnée en x du joueur </td></tr>
+    <tr><td class="paramname">pixelY</td><td>coordonnée en y du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00054">54</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00071">Joueur_Afficher()</a>.</p>
+
+</div>
+</div>
+<a id="ad0cc47be2e3e6317a33958be28cf7bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0cc47be2e3e6317a33958be28cf7bfd">&#9670;&nbsp;</a></span>Joueur_Effacer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur_Effacer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Efface le joueur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00082">82</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="joueur_8c_source.html#l00023">ancienX</a>, <a class="el" href="joueur_8c_source.html#l00024">ancienY</a>, <a class="el" href="carte_8c_source.html#l00102">Carte_GetBloc()</a>, <a class="el" href="carte_8c_source.html#l00115">draw_tile()</a>, et <a class="el" href="joueur_8c_source.html#l00016">TAILLE_BLOC</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pokelike_2main_8c_source.html#l00020">main_POKELIKE()</a>.</p>
+
+</div>
+</div>
+<a id="ad35a522b3b80752e4ed85b2e6f1f868d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad35a522b3b80752e4ed85b2e6f1f868d">&#9670;&nbsp;</a></span>Joueur_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation du joueur. </p>
+<p>Initialise le joueur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00031">31</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="joueur_8c_source.html#l00023">ancienX</a>, <a class="el" href="joueur_8c_source.html#l00024">ancienY</a>, <a class="el" href="carte_8c_source.html#l00088">Carte_Load()</a>, <a class="el" href="joueur_8c_source.html#l00019">joueurX</a>, <a class="el" href="joueur_8c_source.html#l00020">joueurY</a>, <a class="el" href="carte_8h_source.html#l00021">MAP_CENTRE</a>, et <a class="el" href="joueur_8c_source.html#l00026">mapActuelle</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pokelike_2main_8c_source.html#l00020">main_POKELIKE()</a>.</p>
+
+</div>
+</div>
+<a id="afa26d12ec074718a1aa7c268f41a92b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa26d12ec074718a1aa7c268f41a92b7">&#9670;&nbsp;</a></span>Joueur_Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joueur_Update </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>met a jour la position du joueur en fonction de l'entrée de l'utilisateur </p>
+<p>Met à jour la position du joueur selon les boutons. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00091">91</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="joueur_8c_source.html#l00023">ancienX</a>, <a class="el" href="joueur_8c_source.html#l00024">ancienY</a>, <a class="el" href="carte_8c_source.html#l00128">Carte_Afficher()</a>, <a class="el" href="carte_8c_source.html#l00102">Carte_GetBloc()</a>, <a class="el" href="carte_8c_source.html#l00088">Carte_Load()</a>, <a class="el" href="button_8c_source.html#l00021">GPIO_BUTTON_DOWN</a>, <a class="el" href="button_8c_source.html#l00012">GPIO_BUTTON_LEFT</a>, <a class="el" href="button_8c_source.html#l00015">GPIO_BUTTON_RIGHT</a>, <a class="el" href="button_8c_source.html#l00018">GPIO_BUTTON_UP</a>, <a class="el" href="joueur_8c_source.html#l00019">joueurX</a>, <a class="el" href="joueur_8c_source.html#l00020">joueurY</a>, <a class="el" href="carte_8h_source.html#l00021">MAP_CENTRE</a>, <a class="el" href="carte_8h_source.html#l00024">MAP_EST</a>, <a class="el" href="carte_8h_source.html#l00022">MAP_NORD</a>, <a class="el" href="carte_8h_source.html#l00025">MAP_OUEST</a>, <a class="el" href="carte_8h_source.html#l00023">MAP_SUD</a>, <a class="el" href="joueur_8c_source.html#l00026">mapActuelle</a>, <a class="el" href="button_8c_source.html#l00022">PIN_BUTTON_DOWN</a>, <a class="el" href="button_8c_source.html#l00013">PIN_BUTTON_LEFT</a>, <a class="el" href="button_8c_source.html#l00016">PIN_BUTTON_RIGHT</a>, et <a class="el" href="button_8c_source.html#l00019">PIN_BUTTON_UP</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pokelike_2main_8c_source.html#l00020">main_POKELIKE()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a9ccd9cc7034533864136fdf2d9022648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ccd9cc7034533864136fdf2d9022648">&#9670;&nbsp;</a></span>ancienX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ancienX = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00023">23</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00082">Joueur_Effacer()</a>, <a class="el" href="joueur_8c_source.html#l00031">Joueur_Init()</a>, et <a class="el" href="joueur_8c_source.html#l00091">Joueur_Update()</a>.</p>
+
+</div>
+</div>
+<a id="ad55e64d14c676decd19b54389b17f161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55e64d14c676decd19b54389b17f161">&#9670;&nbsp;</a></span>ancienY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ancienY = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00024">24</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00082">Joueur_Effacer()</a>, <a class="el" href="joueur_8c_source.html#l00031">Joueur_Init()</a>, et <a class="el" href="joueur_8c_source.html#l00091">Joueur_Update()</a>.</p>
+
+</div>
+</div>
+<a id="a478abf0cff7593e4d05d992716083a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478abf0cff7593e4d05d992716083a3c">&#9670;&nbsp;</a></span>joueurX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int joueurX = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00019">19</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00071">Joueur_Afficher()</a>, <a class="el" href="joueur_8c_source.html#l00031">Joueur_Init()</a>, et <a class="el" href="joueur_8c_source.html#l00091">Joueur_Update()</a>.</p>
+
+</div>
+</div>
+<a id="ac2c9e74d0883eb83fe6a4263c3f3481e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c9e74d0883eb83fe6a4263c3f3481e">&#9670;&nbsp;</a></span>joueurY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int joueurY = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00020">20</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00071">Joueur_Afficher()</a>, <a class="el" href="joueur_8c_source.html#l00031">Joueur_Init()</a>, et <a class="el" href="joueur_8c_source.html#l00091">Joueur_Update()</a>.</p>
+
+</div>
+</div>
+<a id="a051b6017866e1c4535d34f25a0d74019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a051b6017866e1c4535d34f25a0d74019">&#9670;&nbsp;</a></span>mapActuelle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52">MapID_t</a> mapActuelle = <a class="el" href="carte_8h.html#ae2cf08121ad06e1aa6e35c65256e1d52accb8cb27a57d880c3bb01392274491bc">MAP_CENTRE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="joueur_8c_source.html#l00026">26</a> du fichier <a class="el" href="joueur_8c_source.html">joueur.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="joueur_8c_source.html#l00031">Joueur_Init()</a>, et <a class="el" href="joueur_8c_source.html#l00091">Joueur_Update()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

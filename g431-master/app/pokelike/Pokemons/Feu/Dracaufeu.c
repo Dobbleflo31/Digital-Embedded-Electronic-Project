@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Dracaufeu.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -9,18 +9,6 @@
 
 #define SPRITE_WIDTH  56
 #define SPRITE_HEIGHT 56
-
-/**
- * @brief liste des attaques
- */
-void Dracaufeu_Liste_Attaque(){
-	struct Attaque Lance_Flamme;
-	Lance_Flamme.ATK=95;
-	Lance_Flamme.NIV=38;
-	struct Attaque Danseflamme;
-	Danseflamme.ATK=15;
-	Danseflamme.NIV=46;
-}
 
 uint16_t dracaufeu_map[] = {
 		// 'Sprite_0006_RB', 56x56px

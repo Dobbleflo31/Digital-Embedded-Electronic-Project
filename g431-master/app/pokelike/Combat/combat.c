@@ -1,7 +1,7 @@
-/*
+/**
  * 	@file: combat.c
  *	@date: 29 avr. 2026
- *  @author: maxim
+ *  @author: Maxim
 */
 
 #include "tft_ili9341/stm32g4_ili9341.h"
@@ -182,8 +182,8 @@ void combat_affichage(){
 
 /**
  * @brief Dessin d'une image lors d'un combat
- * @param x: origine en x de l'image
- * @param y: origine en y de l'image
+ * @param pixelX: origine en x de l'image
+ * @param pixelY: origine en y de l'image
  * @param pokemon_map: matrice de l'image
  */
 void combat_DessinerSprite(int pixelX, int pixelY, uint16_t pokemon_map[])

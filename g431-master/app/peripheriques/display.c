@@ -1,8 +1,7 @@
-/*
- * display.c
- *
- *  Created on: Feb 12, 2024
- *      Author: Nirgal
+/**
+ * 	@file: display.c
+ *	@date: Feb 12, 2024
+ *  @author: Nirgal
  */
 #include <peripheriques/display.h>
 #include "stm32g4_systick.h"

@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: pokemon.h
  *	@date: 6 mai 2026
  *  @author: maxim

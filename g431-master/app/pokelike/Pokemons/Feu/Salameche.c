@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Salameche.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -12,24 +12,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Salameche = 16;
-
-/**
- * @brief liste des attaques
- */
-void Salameche_Liste_Attaque(){
-	struct Attaque Griffe;
-	Griffe.ATK=40;
-	Griffe.NIV=0;
-	struct Attaque Rugissement;
-	Rugissement.ATK=0;
-	Rugissement.NIV=0;
-	struct Attaque Flammeche;
-	Flammeche.ATK=40;
-	Flammeche.NIV=9;
-	struct Attaque Groz_Yeux;
-	Groz_Yeux.ATK=0;
-	Groz_Yeux.NIV=15;
-}
 
 uint16_t salameche_map[] = {
 		// 'Sprite_0004_RB', 56x56px

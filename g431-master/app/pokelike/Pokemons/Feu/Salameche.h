@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Salameche.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,6 +13,7 @@
 #define SPRITE_HEIGHT 56
 
 extern uint16_t salameche_map[];
+void Salameche_Liste_Attaque(void);
 
-#endif
+#endif /* POKELIKE_POKEMONS_FEU_SALAMECHE_H_ */
 

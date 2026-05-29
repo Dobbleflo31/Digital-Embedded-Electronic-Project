@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: combat.h
  *	@date: 29 avr. 2026
  *  @author: maxim

@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Carabaffe.c
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -12,19 +12,6 @@
 #define SPRITE_HEIGHT 56
 
 int Niveau_evo_Carabaffe = 36;
-
-/**
- * @brief liste des attaques
- */
-void Carabaffe_Liste_Attaque(){
-	struct Attaque Morsure;
-	Morsure.ATK=60;
-	Morsure.NIV=22;
-	struct Attaque Repli;
-	Repli.ATK=0;
-	Repli.NIV=28;
-
-}
 
 uint16_t carabaffe_map[] = {
 		// 'Sprite_0008_RB', 56x56px

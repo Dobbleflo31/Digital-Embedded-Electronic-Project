@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console_de_jeu:  Fichier source de app/pokelike/Pokemons/pokemon.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Console_de_jeu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_5b8666b3d165df83f84f4489db184739.html">pokelike</a></li><li class="navelem"><a class="el" href="dir_276cba7774dd5d7f6566855a4a2e936e.html">Pokemons</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">pokemon.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pokemon_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Eau/Carapuce.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Eau/Carabaffe.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Eau/Tortank.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Feu/Salameche.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Feu/Reptincel.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Feu/Dracaufeu.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Plante/Bulbizarre.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Plante/Herbizarre.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../Pokemons/Plante/Florizarre.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="pokemon_8h.html#af7244668dc652fcce3612a186644c2bb">   22</a></span>&#160;uint16_t * <a class="code" href="pokemon_8c.html#af7244668dc652fcce3612a186644c2bb">pokemon_get_sprite</a>(<span class="keywordtype">int</span> n){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">switch</span>(n){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_carapuce_8c.html#a84be71982659d4aa766b285afe592b75">carapuce_map</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_carabaffe_8c.html#a7369b66d3fce179fb3bae9f0c1857d1d">carabaffe_map</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_tortank_8c.html#a2683f4f9b3099f527824870cd6e18726">tortank_map</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_salameche_8c.html#a83d480ff033e45f698432b8e686e3e33">salameche_map</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_reptincel_8c.html#a470ee2186f822287e29cc9c44612d51b">reptincel_map</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">case</span> 5:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_dracaufeu_8c.html#a4b119db8933a84928b031608908deecb">dracaufeu_map</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">case</span> 6:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_bulbizarre_8c.html#ada49656911d0c0cc23ccc13c073e16b8">bulbizarre_map</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">case</span> 7:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_herbizarre_8h.html#ae359073baaaaff08112dcdb334cc189d">herbizarre_map</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">case</span> 8:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_florizarre_8c.html#a65da2e8d09734a87f37cfa98765f54f3">florizarre_map</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="_carapuce_8c.html#a84be71982659d4aa766b285afe592b75">carapuce_map</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_carapuce_8c_html_a84be71982659d4aa766b285afe592b75"><div class="ttname"><a href="_carapuce_8c.html#a84be71982659d4aa766b285afe592b75">carapuce_map</a></div><div class="ttdeci">uint16_t carapuce_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_carapuce_8c_source.html#l00034">Carapuce.c:34</a></div></div>
+<div class="ttc" id="apokemon_8c_html_af7244668dc652fcce3612a186644c2bb"><div class="ttname"><a href="pokemon_8c.html#af7244668dc652fcce3612a186644c2bb">pokemon_get_sprite</a></div><div class="ttdeci">uint16_t * pokemon_get_sprite(int n)</div><div class="ttdoc">Récuperation d'une image de pokemon.</div><div class="ttdef"><b>Definition:</b> <a href="pokemon_8c_source.html#l00022">pokemon.c:22</a></div></div>
+<div class="ttc" id="a_tortank_8c_html_a2683f4f9b3099f527824870cd6e18726"><div class="ttname"><a href="_tortank_8c.html#a2683f4f9b3099f527824870cd6e18726">tortank_map</a></div><div class="ttdeci">uint16_t tortank_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_tortank_8c_source.html#l00026">Tortank.c:26</a></div></div>
+<div class="ttc" id="a_bulbizarre_8c_html_ada49656911d0c0cc23ccc13c073e16b8"><div class="ttname"><a href="_bulbizarre_8c.html#ada49656911d0c0cc23ccc13c073e16b8">bulbizarre_map</a></div><div class="ttdeci">uint16_t bulbizarre_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_bulbizarre_8c_source.html#l00036">Bulbizarre.c:36</a></div></div>
+<div class="ttc" id="a_herbizarre_8h_html_ae359073baaaaff08112dcdb334cc189d"><div class="ttname"><a href="_herbizarre_8h.html#ae359073baaaaff08112dcdb334cc189d">herbizarre_map</a></div><div class="ttdeci">uint16_t herbizarre_map[]</div></div>
+<div class="ttc" id="a_salameche_8c_html_a83d480ff033e45f698432b8e686e3e33"><div class="ttname"><a href="_salameche_8c.html#a83d480ff033e45f698432b8e686e3e33">salameche_map</a></div><div class="ttdeci">uint16_t salameche_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_salameche_8c_source.html#l00034">Salameche.c:34</a></div></div>
+<div class="ttc" id="a_dracaufeu_8c_html_a4b119db8933a84928b031608908deecb"><div class="ttname"><a href="_dracaufeu_8c.html#a4b119db8933a84928b031608908deecb">dracaufeu_map</a></div><div class="ttdeci">uint16_t dracaufeu_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_dracaufeu_8c_source.html#l00025">Dracaufeu.c:25</a></div></div>
+<div class="ttc" id="a_carabaffe_8c_html_a7369b66d3fce179fb3bae9f0c1857d1d"><div class="ttname"><a href="_carabaffe_8c.html#a7369b66d3fce179fb3bae9f0c1857d1d">carabaffe_map</a></div><div class="ttdeci">uint16_t carabaffe_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_carabaffe_8c_source.html#l00029">Carabaffe.c:29</a></div></div>
+<div class="ttc" id="a_reptincel_8c_html_a470ee2186f822287e29cc9c44612d51b"><div class="ttname"><a href="_reptincel_8c.html#a470ee2186f822287e29cc9c44612d51b">reptincel_map</a></div><div class="ttdeci">uint16_t reptincel_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_reptincel_8c_source.html#l00028">Reptincel.c:28</a></div></div>
+<div class="ttc" id="a_florizarre_8c_html_a65da2e8d09734a87f37cfa98765f54f3"><div class="ttname"><a href="_florizarre_8c.html#a65da2e8d09734a87f37cfa98765f54f3">florizarre_map</a></div><div class="ttdeci">uint16_t florizarre_map[]</div><div class="ttdef"><b>Definition:</b> <a href="_florizarre_8c_source.html#l00029">Florizarre.c:29</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

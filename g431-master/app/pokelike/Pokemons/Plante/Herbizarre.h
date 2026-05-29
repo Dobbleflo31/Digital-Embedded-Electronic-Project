@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Herbizarre.h
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,5 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 extern uint16_t herbizarre_map[];
+void Herbizarre_Liste_Attaque(void);
 
 #endif /* POKELIKE_SPRITE_HERBIZARRE_H_ */

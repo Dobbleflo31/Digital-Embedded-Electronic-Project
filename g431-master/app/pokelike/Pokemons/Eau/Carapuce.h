@@ -1,4 +1,4 @@
-/*
+/**
  * 	@file: Carapuce.h
  *	@date: 23 avr. 2026
  *  @author: Maxim
@@ -13,5 +13,6 @@
 #define SPRITE_HEIGHT 56
 
 extern uint16_t carapuce_map[];
+void Carapuce_Liste_Attaque(void);
 
 #endif /* POKELIKE_POKEMONS_EAU_CARAPUCE_H_ */

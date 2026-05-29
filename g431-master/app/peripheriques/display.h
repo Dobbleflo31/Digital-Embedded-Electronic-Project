@@ -1,8 +1,7 @@
-/*
- * display.h
- *
- *  Created on: Feb 12, 2024
- *      Author: Nirgal
+/**
+ * 	@file: display.h
+ *	@date: Feb 12, 2024
+ *  @author: Nirgal
  */
 
 #ifndef DISPLAY_H_
