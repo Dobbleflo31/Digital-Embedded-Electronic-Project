@@ -12,8 +12,9 @@
 #include "stm32g4_sys.h"
 #include "stm32g4_gpio.h"
 #include "stm32g4_systick.h"
+#include "button.h"
 
-int main_GAMEOFLIFE(void)
+int main(void)
 {
 	//Initialisation de la couche logicielle HAL (Hardware Abstraction Layer)
 	//Cette ligne doit rester la première étape de la fonction main().
@@ -30,13 +31,17 @@ int main_GAMEOFLIFE(void)
 	//Initialisation du port de la led Verte
 	BSP_GPIO_pin_config(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH, GPIO_MODE_OUTPUT_PP);
 
+	//Initialisation des bouttons
+	BUTTONS_init();
+
 	//Initialisation de notre application
-	void GAMEOFLIFE_init(void);
+	GAMEOFLIFE_init();
 	
 
 	while(1)	//Boucle de tâche de fond
 	{
-		void GAMEOFLIFE_process_main(void);
+		GAMEOFLIFE_state_machine();
+		GAMEOFLIFE_process_main();
 	}
 }
 
