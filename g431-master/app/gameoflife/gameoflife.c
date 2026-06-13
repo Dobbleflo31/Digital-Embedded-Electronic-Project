@@ -319,5 +319,6 @@ void GAMEOFLIFE_create_pattern(grid_t * grid, uint16_t x, uint16_t y, pattern_e 
 		default:
 			break;
 	}
+
 }
 
